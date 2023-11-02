@@ -22,7 +22,24 @@ public class Ui {
     static RepairServiceController repairServiceController = new RepairServiceController(repairServiceRepository);
 
     static ReviewAndRatingRepository reviewAndRatingRepository = new ReviewAndRatingRepository();
-    static ReviewAndRatingController reviewAndRatingController = new ReviewAndRatingController(reviewAndRatingRepository)
+    static ReviewAndRatingController reviewAndRatingController = new ReviewAndRatingController(reviewAndRatingRepository);
+
+    static SupplierRepository supplierRepository = new SupplierRepository();
+    static SupplierController supplierController = new SupplierController(supplierRepository);
+
+    static StoreRepository storeRepository = new StoreRepository();
+    static StoreController storeController = new StoreController(storeRepository);
+
+    static ShipmentRepository shipmentRepository = new ShipmentRepository();
+    static ShipmentController shipmentController = new ShipmentController(shipmentRepository);
+
+    static OrderRepository orderRepository = new OrderRepository();
+    static ProductOrderRepository productOrderRepository = new ProductOrderRepository();
+    static OrderController orderController = new OrderController(orderRepository, productOrderRepository);
+
+    static ProductRepository productRepository = new ProductRepository();
+    static ProductStoreRepository productStoreRepository = new ProductStoreRepository();
+    static ProductController productController = new ProductController(productRepository, productStoreRepository);
     public static void main() {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
@@ -62,11 +79,13 @@ public class Ui {
                     break;
                 case 4:
                     System.out.println("You selected 'Orders.'");
-                    // Implement functionality for managing orders
+                    OrderUI orderUI = new OrderUI();
+                    orderUI.OrderCase(orderController);
                     break;
                 case 5:
                     System.out.println("You selected 'Products.'");
-                    // Implement functionality for managing products
+                    ProductUI productUI = new ProductUI();
+                    productUI.ProductCase(productController);
                     break;
                 case 6:
                     System.out.println("You selected 'Repair Service.'");
@@ -80,15 +99,18 @@ public class Ui {
                     break;
                 case 8:
                     System.out.println("You selected 'Shipments.'");
-                    // Implement functionality for managing shipments
+                    ShipmentUI shipmentUI = new ShipmentUI();
+                    shipmentUI.ShipmentCase(shipmentRepository,shipmentController);
                     break;
                 case 9:
                     System.out.println("You selected 'Stores.'");
-                    // Implement functionality for managing stores
+                    StoreUI storeUI = new StoreUI();
+                    storeUI.StoreCase(storeRepository,storeController);
                     break;
                 case 10:
                     System.out.println("You selected 'Suppliers.'");
-                    // Implement functionality for managing suppliers
+                    SupplierUI supplierUI = new SupplierUI();
+                    supplierUI.SupplierCase(supplierRepository,supplierController);
                     break;
                 case 11:
                     exit = true;
