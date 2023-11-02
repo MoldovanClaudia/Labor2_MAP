@@ -12,7 +12,7 @@ public class EmployeeUI {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
-        System.out.println("1. Add");
+        System.out.println("1. Add ");
         System.out.println("2. Delete");
         System.out.println("3. Update");
         System.out.println("4. Get All");
