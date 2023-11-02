@@ -14,7 +14,16 @@ public class Ui {
 
     static EmployeeRepository employeeRepository = new EmployeeRepository();
     static EmployeeController employeeController= new EmployeeController(employeeRepository);
-    public static void main(String[] args) {
+
+    static JobRepository jobRepository = new JobRepository();
+    static JobController jobController = new JobController(jobRepository);
+
+    static RepairServiceRepository repairServiceRepository = new RepairServiceRepository();
+    static RepairServiceController repairServiceController = new RepairServiceController(repairServiceRepository);
+
+    static ReviewAndRatingRepository reviewAndRatingRepository = new ReviewAndRatingRepository();
+    static ReviewAndRatingController reviewAndRatingController = new ReviewAndRatingController(reviewAndRatingRepository)
+    public static void main() {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
@@ -37,16 +46,19 @@ public class Ui {
 
             switch (choice) {
                 case 1:
+                    System.out.println("You selected 'Customers.'");
                     CustomerUI customerUI = new CustomerUI();
                     customerUI.CustomerCase(customerRepository, customerController);
                     break;
                 case 2:
                     System.out.println("You selected 'Employees.'");
-                    // Implement functionality for managing employees
+                    EmployeeUI employeeUI = new EmployeeUI();
+                    employeeUI.EmployeeCase(employeeRepository, employeeController);
                     break;
                 case 3:
                     System.out.println("You selected 'Jobs.'");
-                    // Implement functionality for managing jobs
+                    JobUI jobUI = new JobUI();
+                    jobUI.JobCase(jobRepository, jobController);
                     break;
                 case 4:
                     System.out.println("You selected 'Orders.'");
@@ -58,11 +70,13 @@ public class Ui {
                     break;
                 case 6:
                     System.out.println("You selected 'Repair Service.'");
-                    // Implement functionality for managing repair services
+                    RepairServiceUI repairServiceUI = new RepairServiceUI();
+                    repairServiceUI.RepairServiceCase(repairServiceRepository,repairServiceController);
                     break;
                 case 7:
                     System.out.println("You selected 'Reviews and Ratings.'");
-                    // Implement functionality for managing reviews and ratings
+                    ReviewsAndRatingUI reviewsAndRatingUI = new ReviewsAndRatingUI();
+                    reviewsAndRatingUI.ReviewAndRatingCase(reviewAndRatingRepository,reviewAndRatingController);
                     break;
                 case 8:
                     System.out.println("You selected 'Shipments.'");
