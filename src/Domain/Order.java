@@ -43,4 +43,16 @@ public class Order {
                 ", order date=" + orderDate +
                 "}";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Order order = (Order) obj;
+        return orderId == order.orderId;
+    }
 }
