@@ -2,7 +2,7 @@ package UI;
 
 import Controller.ReviewAndRatingController;
 import Domain.ReviewAndRating;
-import InMemoryRepository.ReviewAndRatingRepository;
+
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ReviewsAndRatingUI {
     public void ReviewAndRatingCase(ReviewAndRatingController reviewAndRatingController) {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
+
 
         System.out.println("1. Add Review and Rating");
         System.out.println("2. Delete Review and Rating");

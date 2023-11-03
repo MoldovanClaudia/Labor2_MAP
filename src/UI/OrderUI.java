@@ -3,8 +3,7 @@ package UI;
 import Controller.OrderController;
 import Domain.Order;
 import Domain.ProductOrder;
-import InMemoryRepository.OrderRepository;
-import InMemoryRepository.ProductOrderRepository;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ import java.util.Scanner;
 public class OrderUI {
     public void OrderCase(OrderController orderController) {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
+
 
         System.out.println("1. Add Order");
         System.out.println("2. Delete Order");

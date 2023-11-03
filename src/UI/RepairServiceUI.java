@@ -2,7 +2,6 @@ package UI;
 
 import Controller.RepairServiceController;
 import Domain.RepairService;
-import InMemoryRepository.RepairServiceRepository;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import java.util.ArrayList;
 public class RepairServiceUI {
     public void RepairServiceCase(RepairServiceController repairServiceController) {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
 
         System.out.println("1. Add Repair Service");
         System.out.println("2. Delete Repair Service");

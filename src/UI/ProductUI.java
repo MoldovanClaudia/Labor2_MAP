@@ -3,8 +3,7 @@ package UI;
 import Controller.ProductController;
 import Domain.Product;
 import Domain.ProductStore;
-import InMemoryRepository.ProductRepository;
-import InMemoryRepository.ProductStoreRepository;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ import java.util.Scanner;
 public class ProductUI {
     public void ProductCase(ProductController productController) {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
+
 
         System.out.println("1. Add Product");
         System.out.println("2. Delete Product");

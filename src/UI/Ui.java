@@ -2,7 +2,6 @@ package UI;
 
 import java.util.Scanner;
 import Controller.*;
-import Domain.Customer;
 import InMemoryRepository.*;
 
 

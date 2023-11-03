@@ -2,7 +2,6 @@ package UI;
 
 import Controller.CustomerController;
 import Domain.Customer;
-import InMemoryRepository.CustomerRepository;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import java.util.ArrayList;
 public class CustomerUI {
     public void CustomerCase(CustomerController customerController) {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
 
         System.out.println("1. Add");
         System.out.println("2. Delete");

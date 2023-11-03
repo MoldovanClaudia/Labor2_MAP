@@ -2,7 +2,7 @@ package UI;
 
 import Controller.JobController;
 import Domain.Job;
-import InMemoryRepository.JobRepository;
+
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class JobUI {
     public void JobCase(JobController jobController) {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
+
 
         System.out.println("1. Add Job");
         System.out.println("2. Delete Job");

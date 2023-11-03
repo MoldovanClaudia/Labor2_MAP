@@ -2,7 +2,7 @@ package UI;
 
 import Controller.EmployeeController;
 import Domain.Employee;
-import InMemoryRepository.EmployeeRepository;
+
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class EmployeeUI {
     public void EmployeeCase(EmployeeController employeeController) {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
+
 
         System.out.println("1. Add ");
         System.out.println("2. Delete");

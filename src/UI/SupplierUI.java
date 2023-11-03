@@ -2,7 +2,6 @@ package UI;
 
 import Controller.SupplierController;
 import Domain.Supplier;
-import InMemoryRepository.SupplierRepository;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 public class SupplierUI {
     public void SupplierCase(SupplierController supplierController) {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
+
 
         System.out.println("1. Add Supplier");
         System.out.println("2. Delete Supplier");
