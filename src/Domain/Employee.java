@@ -8,12 +8,15 @@ public class Employee {
     private int jobId;
     private int storeId;
 
+    public int getEmployeeId() { return this.employeeId; }
+
     public Employee(int employeeId, String employeeFirstName, String employeeLastName, String employeeContact) {
         this.employeeId = employeeId;
         this.employeeFirstName = employeeFirstName;
         this.employeeLastName = employeeLastName;
         this.employeeContact = employeeContact;
     }
+
 
     @Override
     public String toString() {

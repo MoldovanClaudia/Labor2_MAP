@@ -1,4 +1,5 @@
 package InMemoryRepository;
+import Domain.Customer;
 import Domain.RepairService;
 import Domain.ReviewAndRating;
 import java.util.ArrayList;
@@ -28,5 +29,15 @@ public class ReviewAndRatingRepository implements InMemoryRepository<ReviewAndRa
     @Override
     public ArrayList<ReviewAndRating> getAllItems() {
         return reviewAndRatings;
+    }
+
+    @Override
+    public ReviewAndRating findById(int reviewAndRatingId) {
+        for(ReviewAndRating reviewAndRating : reviewAndRatings) {
+            if (reviewAndRating.getReviewId() == reviewAndRatingId) {
+                return reviewAndRating;
+            }
+        }
+        return null;
     }
 }

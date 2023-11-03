@@ -1,4 +1,5 @@
 package InMemoryRepository;
+import Domain.Employee;
 import Domain.Order;
 import java.util.ArrayList;
 
@@ -27,4 +28,15 @@ public class OrderRepository implements InMemoryRepository<Order> {
     public ArrayList<Order> getAllItems() {
         return orders;
     }
+
+    @Override
+    public Order findById(int orderId) {
+        for(Order order : orders) {
+            if (order.getOrderId() == orderId) {
+                return order;
+            }
+        }
+        return null;
+    }
+
 }

@@ -1,12 +1,14 @@
 package Domain;
 
 public class ProductStore {
+    private int productStoreId;
     private int productId;
     private int storeId;
 
     public ProductStore(int id, int storeID) {
     }
-    // mai trebe adaugat un atribut
-    // getteri si setteri
-    // metoda de toString
+
+    public int getproductStoreIdId() { return this.productStoreId;
+    }
+
 }

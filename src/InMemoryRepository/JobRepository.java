@@ -1,4 +1,5 @@
 package InMemoryRepository;
+import Domain.Employee;
 import Domain.Job;
 import java.util.ArrayList;
 
@@ -27,4 +28,15 @@ public class JobRepository implements InMemoryRepository<Job> {
     public ArrayList<Job> getAllItems() {
         return jobs;
     }
+
+    @Override
+    public Job findById(int jobId) {
+        for(Job job : jobs) {
+            if (job.getJobId() == jobId) {
+                return job;
+            }
+        }
+        return null;
+    }
+
 }

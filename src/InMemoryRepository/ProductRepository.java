@@ -1,4 +1,5 @@
 package InMemoryRepository;
+import Domain.Employee;
 import Domain.Product;
 import java.util.ArrayList;
 
@@ -27,4 +28,15 @@ public class ProductRepository implements InMemoryRepository<Product> {
     public ArrayList<Product> getAllItems() {
         return products;
     }
+
+    @Override
+    public Product findById(int productId) {
+        for(Product product : products) {
+            if (product.getProductId() == productId) {
+                return product;
+            }
+        }
+        return null;
+    }
+
 }

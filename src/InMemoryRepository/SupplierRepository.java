@@ -1,4 +1,5 @@
 package InMemoryRepository;
+import Domain.Customer;
 import Domain.Supplier;
 import java.util.ArrayList;
 
@@ -26,5 +27,15 @@ public class SupplierRepository implements InMemoryRepository<Supplier> {
     @Override
     public ArrayList<Supplier> getAllItems() {
         return suppliers;
+    }
+
+    @Override
+    public Supplier findById(int supplierId) {
+        for(Supplier supplier : suppliers) {
+            if (supplier.getSupplierId() == supplierId) {
+                return supplier;
+            }
+        }
+        return null;
     }
 }

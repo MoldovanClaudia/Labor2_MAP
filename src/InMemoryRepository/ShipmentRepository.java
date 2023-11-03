@@ -1,4 +1,5 @@
 package InMemoryRepository;
+import Domain.Customer;
 import Domain.Shipment;
 import java.util.ArrayList;
 
@@ -26,5 +27,15 @@ public class ShipmentRepository implements InMemoryRepository<Shipment> {
     @Override
     public ArrayList<Shipment> getAllItems() {
         return shipments;
+    }
+
+    @Override
+    public Shipment findById(int shipmentId) {
+        for(Shipment shipment : shipments) {
+            if (shipment.getShipmentId() == shipmentId) {
+                return shipment;
+            }
+        }
+        return null;
     }
 }
