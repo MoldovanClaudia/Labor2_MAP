@@ -1,5 +1,6 @@
 package Controller;
 
+import Domain.Customer;
 import Domain.Product;
 import Domain.ProductOrder;
 import Domain.ProductStore;
@@ -25,9 +26,10 @@ public class ProductController {
         productStoreRepository.addItem(newProductStore);
     }
 
-    public void deleteProduct(Product product, ProductStore productStore) {
+    public void deleteProduct(int productId) {
+        Product product = productRepository.findById(productId);
         productRepository.deleteItem(product);
-        productStoreRepository.deleteItem(productStore);
+
     }
 
     public void updateProduct(Product oldProduct, Product newProduct, ProductStore oldProductStore, ProductStore newProductStore) {

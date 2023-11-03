@@ -37,16 +37,7 @@ public class CustomerUI {
             case 2:
                 System.out.print("Enter customer ID: ");
                 int customerId2 = scanner.nextInt();
-//                System.out.print("Enter first name: ");
-//                String firstName2 = scanner.next();
-//                System.out.print("Enter last name: ");
-//                String lastName2 = scanner.next();
-//                System.out.print("Enter contact: ");
-//                String contact2 = scanner.next();
-//                System.out.print("Enter billing address: ");
-//                String billingAddress2 = scanner.next();
-//
-//                Customer customer = new Customer(customerId2, firstName2, lastName2, contact2, billingAddress2);
+
                 customerController.deleteCustomer(customerId2);
 
                 System.out.println("Customer deleted successfully.");

@@ -55,4 +55,16 @@ public class RepairService {
                 "}";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        RepairService repairService = (RepairService) obj;
+        return repairId == repairService.repairId;
+    }
+
 }

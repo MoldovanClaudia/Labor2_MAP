@@ -1,6 +1,7 @@
 package Controller;
 
 import Domain.Store;
+import Domain.Supplier;
 import InMemoryRepository.StoreRepository;
 
 import java.util.ArrayList;
@@ -17,8 +18,10 @@ public class StoreController {
         storeRepository.addItem(newStore);
     }
 
-    public void deleteStore(Store store) {
+    public void deleteStore(int storeId) {
+        Store store = storeRepository.findById(storeId);
         storeRepository.deleteItem(store);
+
     }
 
     public void updateStore(Store oldStore, Store newStore) {

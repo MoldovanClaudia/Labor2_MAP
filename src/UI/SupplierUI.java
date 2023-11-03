@@ -39,8 +39,8 @@ public class SupplierUI {
                 System.out.print("Are you sure you want to delete this supplier? (Y/N): ");
                 String confirmation = scanner.next();
                 if (confirmation.equalsIgnoreCase("Y")) {
-                    Supplier supplier = new Supplier(supplierId2, "", "");
-                    supplierController.deleteSupplier(supplier);
+                    //Supplier supplier = new Supplier(supplierId2, "", "");
+                    supplierController.deleteSupplier(supplierId2);
                     System.out.println("Supplier deleted successfully.");
                 } else {
                     System.out.println("Deletion canceled.");

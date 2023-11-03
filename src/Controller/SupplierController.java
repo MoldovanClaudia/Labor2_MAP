@@ -1,5 +1,6 @@
 package Controller;
 
+import Domain.Customer;
 import Domain.Supplier;
 import InMemoryRepository.SupplierRepository;
 
@@ -17,8 +18,10 @@ public class SupplierController {
         supplierRepository.addItem(newSupplier);
     }
 
-    public void deleteSupplier(Supplier supplier) {
+    public void deleteSupplier(int supplierId) {
+        Supplier supplier = supplierRepository.findById(supplierId);
         supplierRepository.deleteItem(supplier);
+
     }
 
     public void updateSupplier(Supplier oldSupplier, Supplier newSupplier) {

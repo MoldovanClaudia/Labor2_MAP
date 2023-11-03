@@ -36,4 +36,17 @@ public class Supplier {
                 ", contact=" + supplierContact +
                 "}";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Supplier supplier = (Supplier) obj;
+        return supplierId == supplier.supplierId;
+    }
+
 }

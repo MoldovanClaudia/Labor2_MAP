@@ -53,4 +53,16 @@ public class Shipment {
                 ", place=" + place +
                 "}";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Shipment shipment = (Shipment) obj;
+        return shipmentId == shipment.shipmentId;
+    }
 }

@@ -27,5 +27,17 @@ public class Store {
                 "}";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Store store = (Store) obj;
+        return storeId == store.storeId;
+    }
+
 
 }
