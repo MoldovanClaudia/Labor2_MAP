@@ -24,4 +24,16 @@ public class Employee {
                 ", contact=" + employeeContact +
                 "}";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Employee employee = (Employee) obj;
+        return employeeId == employee.employeeId;
+    }
 }

@@ -9,4 +9,16 @@ public class ProductStore {
     // mai trebe adaugat un atribut
     // getteri si setteri
     // metoda de toString
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        ProductStore productStore = (ProductStore) obj;
+        return productId == productStore.productId;
+    }
 }
