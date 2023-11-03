@@ -6,5 +6,7 @@ public class ProductOrder {
 
     public ProductOrder(int productID, int orderID) {
     }
+
+    public int getproductOrderId() {return  productId;}
     // mai trebuie completat
 }
