@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class ReviewsAndRatingUI {
-    public void ReviewAndRatingCase(ReviewAndRatingRepository reviewAndRatingRepository, ReviewAndRatingController reviewAndRatingController) {
+    public void ReviewAndRatingCase(ReviewAndRatingController reviewAndRatingController) {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 

@@ -65,17 +65,17 @@ public class Ui {
                 case 1:
                     System.out.println("You selected 'Customers.'");
                     CustomerUI customerUI = new CustomerUI();
-                    customerUI.CustomerCase(customerRepository, customerController);
+                    customerUI.CustomerCase(customerController);
                     break;
                 case 2:
                     System.out.println("You selected 'Employees.'");
                     EmployeeUI employeeUI = new EmployeeUI();
-                    employeeUI.EmployeeCase(employeeRepository, employeeController);
+                    employeeUI.EmployeeCase(employeeController);
                     break;
                 case 3:
                     System.out.println("You selected 'Jobs.'");
                     JobUI jobUI = new JobUI();
-                    jobUI.JobCase(jobRepository, jobController);
+                    jobUI.JobCase(jobController);
                     break;
                 case 4:
                     System.out.println("You selected 'Orders.'");
@@ -90,27 +90,27 @@ public class Ui {
                 case 6:
                     System.out.println("You selected 'Repair Service.'");
                     RepairServiceUI repairServiceUI = new RepairServiceUI();
-                    repairServiceUI.RepairServiceCase(repairServiceRepository,repairServiceController);
+                    repairServiceUI.RepairServiceCase(repairServiceController);
                     break;
                 case 7:
                     System.out.println("You selected 'Reviews and Ratings.'");
                     ReviewsAndRatingUI reviewsAndRatingUI = new ReviewsAndRatingUI();
-                    reviewsAndRatingUI.ReviewAndRatingCase(reviewAndRatingRepository,reviewAndRatingController);
+                    reviewsAndRatingUI.ReviewAndRatingCase(reviewAndRatingController);
                     break;
                 case 8:
                     System.out.println("You selected 'Shipments.'");
                     ShipmentUI shipmentUI = new ShipmentUI();
-                    shipmentUI.ShipmentCase(shipmentRepository,shipmentController);
+                    shipmentUI.ShipmentCase(shipmentController);
                     break;
                 case 9:
                     System.out.println("You selected 'Stores.'");
                     StoreUI storeUI = new StoreUI();
-                    storeUI.StoreCase(storeRepository,storeController);
+                    storeUI.StoreCase(storeController);
                     break;
                 case 10:
                     System.out.println("You selected 'Suppliers.'");
                     SupplierUI supplierUI = new SupplierUI();
-                    supplierUI.SupplierCase(supplierRepository,supplierController);
+                    supplierUI.SupplierCase(supplierController);
                     break;
                 case 11:
                     exit = true;

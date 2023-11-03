@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class StoreUI {
-    public void StoreCase(StoreRepository storeRepository, StoreController storeController) {
+    public void StoreCase(StoreController storeController) {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 

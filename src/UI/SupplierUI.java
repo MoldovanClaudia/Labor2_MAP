@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class SupplierUI {
-    public void SupplierCase(SupplierRepository supplierRepository, SupplierController supplierController) {
+    public void SupplierCase(SupplierController supplierController) {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 

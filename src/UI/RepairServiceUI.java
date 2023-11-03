@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class RepairServiceUI {
-    public void RepairServiceCase(RepairServiceRepository repairServiceRepository, RepairServiceController repairServiceController) {
+    public void RepairServiceCase(RepairServiceController repairServiceController) {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 

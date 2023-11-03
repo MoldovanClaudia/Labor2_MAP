@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class EmployeeUI {
-    public void EmployeeCase(EmployeeRepository employeeRepository, EmployeeController employeeController) {
+    public void EmployeeCase(EmployeeController employeeController) {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 

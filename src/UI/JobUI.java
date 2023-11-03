@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class JobUI {
-    public void JobCase(JobRepository jobRepository, JobController jobController) {
+    public void JobCase(JobController jobController) {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
