@@ -16,8 +16,10 @@ public class CustomerController{
         customerRepository.addItem(newCustomer);
     }
 
-    public void deleteCustomer(Customer customer) {
+    public void deleteCustomer(int customerId) {
+        Customer customer = customerRepository.findById(customerId);
         customerRepository.deleteItem(customer);
+
     }
 
     public void updateCustomer(Customer oldCustomer, Customer newCustomer) {
