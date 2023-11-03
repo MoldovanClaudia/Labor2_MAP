@@ -37,7 +37,7 @@ public class JobUI {
                 int jobId2 = scanner.nextInt();
 
                 Job job = new Job(jobId2, "", "");
-                jobController.deleteJob(job);
+                jobController.deleteJob(jobId2);
 
                 System.out.println("Job deleted successfully.");
                 break;

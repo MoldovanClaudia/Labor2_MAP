@@ -53,7 +53,7 @@ public class ProductUI {
                 if (confirmation.equalsIgnoreCase("Y")) {
                     Product product = new Product(productID2, "", "", "", 0.0f, 0, 0);
                     ProductStore productStore = new ProductStore(productID2, 0);
-                    productController.deleteProduct(product, productStore);
+                    productController.deleteProduct(productID2);
                     System.out.println("Product and associated product stores deleted successfully.");
                 } else {
                     System.out.println("Deletion canceled.");

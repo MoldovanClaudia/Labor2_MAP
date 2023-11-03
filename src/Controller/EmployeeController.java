@@ -1,4 +1,5 @@
 package Controller;
+import Domain.Customer;
 import Domain.Employee;
 import InMemoryRepository.EmployeeRepository;
 
@@ -16,8 +17,10 @@ public class EmployeeController {
         employeeRepository.addItem(newEmployee);
     }
 
-    public void deleteEmployee(Employee employee) {
+    public void deleteEmployee(int employeeId) {
+        Employee employee = employeeRepository.findById(employeeId);
         employeeRepository.deleteItem(employee);
+
     }
 
     public void updateEmployee(Employee oldEmployee, Employee newEmployee) {

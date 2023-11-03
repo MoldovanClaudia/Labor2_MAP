@@ -1,6 +1,7 @@
 package Controller;
 
 import Domain.ReviewAndRating;
+import Domain.Shipment;
 import InMemoryRepository.ReviewAndRatingRepository;
 
 import java.util.ArrayList;
@@ -19,6 +20,12 @@ public class ReviewAndRatingController {
 
     public void deleteReviewAndRating(ReviewAndRating reviewAndRating) {
         reviewAndRatingRepository.deleteItem(reviewAndRating);
+    }
+
+    public void deleteReviewAndRating(int reviewAndRatingId) {
+        ReviewAndRating reviewAndRating = reviewAndRatingRepository.findById(reviewAndRatingId);
+        reviewAndRatingRepository.deleteItem(reviewAndRating);
+
     }
 
     public void updateReviewAndRating(ReviewAndRating oldReview, ReviewAndRating newReview) {

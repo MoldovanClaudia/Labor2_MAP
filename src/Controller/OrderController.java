@@ -1,4 +1,5 @@
 package Controller;
+import Domain.Job;
 import Domain.Order;
 import Domain.ProductOrder;
 import InMemoryRepository.OrderRepository;
@@ -22,9 +23,11 @@ public class OrderController {
         productOrderRepository.addItem(newProductOrder);
     }
 
-    public void deleteOrder(Order order, ProductOrder productOrder) {
+
+    public void deleteOrder(int orderId) {
+        Order order = orderRepository.findById(orderId);
         orderRepository.deleteItem(order);
-        productOrderRepository.deleteItem(productOrder);
+
     }
 
     public void updateOrder(Order oldOrder, Order newOrder, ProductOrder oldProductOrder, ProductOrder newProductOrder) {

@@ -1,5 +1,6 @@
 package Controller;
 
+import Domain.Job;
 import Domain.RepairService;
 import InMemoryRepository.RepairServiceRepository;
 
@@ -17,10 +18,15 @@ public class RepairServiceController {
         repairServiceRepository.addItem(newRepairService);
     }
 
-    public void deleteRepairService(RepairService repairService) {
-        repairServiceRepository.deleteItem(repairService);
-    }
+    //public void deleteRepairService(RepairService repairService) {
+    //    repairServiceRepository.deleteItem(repairService);
+    //}
 
+    public void deleteRepairService(int repairServiceId) {
+        RepairService repairService = repairServiceRepository.findById(repairServiceId);
+        repairServiceRepository.deleteItem(repairService);
+
+    }
     public void updateRepairService(RepairService oldRepairService, RepairService newRepairService) {
         repairServiceRepository.updateItem(oldRepairService, newRepairService);
     }

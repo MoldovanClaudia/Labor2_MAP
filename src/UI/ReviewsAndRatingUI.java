@@ -36,17 +36,9 @@ public class ReviewsAndRatingUI {
                 break;
             case 2:
                 System.out.print("Enter review ID to delete: ");
-                System.out.print("Enter review ID: ");
                 int reviewId2 = scanner.nextInt();
-                System.out.print("Enter product ID: ");
-                int productId2 = scanner.nextInt();
-                System.out.print("Enter customer ID: ");
-                int customerId2 = scanner.nextInt();
-                System.out.print("Enter rating: ");
-                int rating2 = scanner.nextInt();
 
-                ReviewAndRating reviewAndRating = new ReviewAndRating(reviewId2, productId2, customerId2, rating2);
-                reviewAndRatingController.deleteReviewAndRating(reviewAndRating);
+                reviewAndRatingController.deleteReviewAndRating(reviewId2);
 
                 System.out.println("Review and Rating deleted successfully.");
                 break;

@@ -45,7 +45,7 @@ public class OrderUI {
                 if (confirmation.equalsIgnoreCase("Y")) {
                     Order order = new Order(orderID2, 0, "");
                     ProductOrder productOrder = new ProductOrder(0, orderID2);
-                    orderController.deleteOrder(order, productOrder);
+                    orderController.deleteOrder(orderID2);
                     System.out.println("Order and associated product orders deleted successfully.");
                 } else {
                     System.out.println("Deletion canceled.");

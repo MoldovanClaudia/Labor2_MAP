@@ -1,4 +1,5 @@
 package Controller;
+import Domain.Employee;
 import Domain.Job;
 import InMemoryRepository.JobRepository;
 import java.util.ArrayList;
@@ -15,8 +16,10 @@ public class JobController {
         jobRepository.addItem(newJob);
     }
 
-    public void deleteJob(Job job) {
+    public void deleteJob(int jobId) {
+        Job job = jobRepository.findById(jobId);
         jobRepository.deleteItem(job);
+
     }
 
     public void updateJob(Job oldJob, Job newJob) {

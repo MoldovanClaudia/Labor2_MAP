@@ -1,4 +1,5 @@
 package InMemoryRepository;
+import Domain.Customer;
 import Domain.RepairService;
 import java.util.ArrayList;
 
@@ -26,5 +27,15 @@ public class RepairServiceRepository implements InMemoryRepository<RepairService
     @Override
     public ArrayList<RepairService> getAllItems() {
         return repairServices;
+    }
+
+    @Override
+    public RepairService findById(int repairServiceId) {
+        for(RepairService repairService : repairServices) {
+            if (repairService.getRepairId() == repairServiceId) {
+                return repairService;
+            }
+        }
+        return null;
     }
 }

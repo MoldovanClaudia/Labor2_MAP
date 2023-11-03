@@ -37,15 +37,8 @@ public class EmployeeUI {
             case 2:
                 System.out.print("Enter employee ID: ");
                 int employeeId2 = scanner.nextInt();
-                System.out.print("Enter first name: ");
-                String firstName2 = scanner.next();
-                System.out.print("Enter last name: ");
-                String lastName2 = scanner.next();
-                System.out.print("Enter contact: ");
-                String contact2 = scanner.next();
 
-                Employee employee = new Employee(employeeId2, firstName2, lastName2, contact2);
-                employeeController.deleteEmployee(employee);
+                employeeController.deleteEmployee(employeeId2);
 
                 System.out.println("Employee deleted successfully.");
                 break;

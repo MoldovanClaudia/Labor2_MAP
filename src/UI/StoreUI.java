@@ -41,7 +41,7 @@ public class StoreUI {
                 String confirmation = scanner.next();
                 if (confirmation.equalsIgnoreCase("Y")) {
                     Store store = new Store(storeId2, "", "");
-                    storeController.deleteStore(store);
+                    storeController.deleteStore(storeId2);
                     System.out.println("Store deleted successfully.");
                 } else {
                     System.out.println("Deletion canceled.");

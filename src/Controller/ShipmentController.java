@@ -1,6 +1,7 @@
 package Controller;
 
 import Domain.Shipment;
+import Domain.Store;
 import InMemoryRepository.ShipmentRepository;
 
 import java.util.ArrayList;
@@ -17,8 +18,10 @@ public class ShipmentController {
         shipmentRepository.addItem(newShipment);
     }
 
-    public void deleteShipment(Shipment shipment) {
+    public void deleteShipment(int shipmentId) {
+        Shipment shipment = shipmentRepository.findById(shipmentId);
         shipmentRepository.deleteItem(shipment);
+
     }
 
     public void updateShipment(Shipment oldShipment, Shipment newShipment) {

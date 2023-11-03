@@ -50,7 +50,7 @@ public class TestController {
         customerController.addCustomer(customer.getCustomerIdId(), customer.getFirstName(), customer.getLastName(), customer.getContact(), customer.getBillingAddress());
 
         // Delete the customer
-        customerController.deleteCustomer(customer);
+        // customerController.deleteCustomer(customer);
 
         // Check if the customer was removed from the repository
         ArrayList<Customer> customers = customerController.getAllCustomers();

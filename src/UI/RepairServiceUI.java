@@ -37,7 +37,7 @@ public class RepairServiceUI {
                 int repairId2 = scanner.nextInt();
 
                 RepairService repairService = new RepairService(repairId2, 0, 0, 0);
-                repairServiceController.deleteRepairService(repairService);
+                repairServiceController.deleteRepairService(repairId2);
 
                 System.out.println("Repair Service deleted successfully.");
                 break;

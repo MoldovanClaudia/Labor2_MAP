@@ -43,7 +43,7 @@ public class ShipmentUI {
                 String confirmation = scanner.next();
                 if (confirmation.equalsIgnoreCase("Y")) {
                     Shipment shipment = new Shipment(shipmentId2, 0, "", "");
-                    shipmentController.deleteShipment(shipment);
+                    shipmentController.deleteShipment(shipmentId2);
                     System.out.println("Shipment deleted successfully.");
                 } else {
                     System.out.println("Deletion canceled.");
