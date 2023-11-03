@@ -1,9 +1,15 @@
+package Tests;
+
 import static org.junit.Assert.*;
+
+import Controller.CustomerController;
+import InMemoryRepository.CustomerRepository;
+import Domain.Customer;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
 
-public class CustomerControllerTest {
+public class TestController {
 
     private CustomerRepository customerRepository;
     private CustomerController customerController;
@@ -30,7 +36,7 @@ public class CustomerControllerTest {
 
         // Check if the added customer's details match the expected values
         Customer addedCustomer = customers.get(0);
-        assertEquals(customerId, addedCustomer.getCustomerId());
+        assertEquals(customerId, addedCustomer.getCustomerIdId());
         assertEquals(firstName, addedCustomer.getFirstName());
         assertEquals(lastName, addedCustomer.getLastName());
         assertEquals(contact, addedCustomer.getContact());
@@ -41,7 +47,7 @@ public class CustomerControllerTest {
     public void testDeleteCustomer() {
         // Create a new customer and add it to the repository
         Customer customer = new Customer(2, "Alice", "Johnson", "alice@example.com", "456 Elm St");
-        customerController.addCustomer(customer.getCustomerId(), customer.getFirstName(), customer.getLastName(), customer.getContact(), customer.getBillingAddress());
+        customerController.addCustomer(customer.getCustomerIdId(), customer.getFirstName(), customer.getLastName(), customer.getContact(), customer.getBillingAddress());
 
         // Delete the customer
         customerController.deleteCustomer(customer);
