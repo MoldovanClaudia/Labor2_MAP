@@ -28,4 +28,14 @@ public class CustomerRepository implements InMemoryRepository<Customer> {
         return customers;
     }
 
+    @Override
+    public Customer findById(int cutomerId) {
+        for(Customer customer : customers) {
+            if (customer.getCustomerIdId() == cutomerId) {
+                return customer;
+            }
+        }
+        return null;
+    }
+
 }
