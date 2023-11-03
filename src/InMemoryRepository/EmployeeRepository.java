@@ -29,10 +29,10 @@ public class EmployeeRepository implements InMemoryRepository<Employee>{
         return employees;
     }
     @Override
-    public Employee findById(int cutomerId) {
-        for(Customer customer : customers) {
-            if (customer.getCustomerIdId() == cutomerId) {
-                return customer;
+    public Employee findById(int employeeId) {
+        for(Employee employee : employees) {
+            if (employee.getEmployeeId() == employeeId) {
+                return employee;
             }
         }
         return null;
