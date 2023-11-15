@@ -48,5 +48,4 @@ public class Supplier {
         Supplier supplier = (Supplier) obj;
         return supplierId == supplier.supplierId;
     }
-
 }

@@ -54,7 +54,6 @@ public class ReviewAndRating {
                 ", rating=" + rating +
                 "}";
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -64,7 +63,6 @@ public class ReviewAndRating {
             return false;
         }
         ReviewAndRating reviewAndRating = (ReviewAndRating) obj;
-        return reviewId == reviewAndRating.reviewId;
+        return reviewId== reviewAndRating.reviewId;
     }
-
 }

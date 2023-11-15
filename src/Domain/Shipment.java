@@ -53,7 +53,6 @@ public class Shipment {
                 ", place=" + place +
                 "}";
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
