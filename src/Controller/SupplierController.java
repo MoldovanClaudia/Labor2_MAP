@@ -5,6 +5,7 @@ import Domain.Supplier;
 import InMemoryRepository.SupplierRepository;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class SupplierController {
     private final SupplierRepository supplierRepository;
@@ -24,9 +25,24 @@ public class SupplierController {
 
     }
 
-    public void updateSupplier(Supplier oldSupplier, Supplier newSupplier) {
-        supplierRepository.updateItem(oldSupplier, newSupplier);
+    public void updateSupplier(int supplierId, Map<String, String> supplier_updates) {
+        Supplier oldSupplier = supplierRepository.findById(supplierId);
+
+        if (oldSupplier != null) {
+            Supplier newSupplier = new Supplier(
+                    oldSupplier.getSupplierId(),
+                    supplier_updates.containsKey("supplierName") ? supplier_updates.get("supplierName") : oldSupplier.getName(),
+                    supplier_updates.containsKey("supplierContact") ? supplier_updates.get("supplierContact") : oldSupplier.getContact()
+            );
+
+
+            supplierRepository.updateItem(oldSupplier, newSupplier);
+            System.out.println("Supplier updated successfully.");
+        } else {
+            System.out.println("Supplier not found.");
+        }
     }
+
 
     public ArrayList<Supplier> getAllSuppliers() {
         return supplierRepository.getAllItems();

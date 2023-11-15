@@ -3,6 +3,8 @@ package UI;
 import Controller.RepairServiceController;
 import Domain.RepairService;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -42,7 +44,30 @@ public class RepairServiceUI {
                 System.out.println("Repair Service deleted successfully.");
                 break;
             case 3:
-                // Implement functionality for updating
+                System.out.print("Enter repair service ID to update: ");
+                int repairAndServiceIdToUpdate = scanner.nextInt();
+
+                Map<String, String> repairAndService_updates = new HashMap<>();
+
+                System.out.print("Enter new product ID (press Enter to skip): ");
+                String newProductID = scanner.nextLine().trim();
+                if (!newProductID.isEmpty()) {
+                    repairAndService_updates.put("productID", newProductID);
+                }
+
+                System.out.print("Enter new customer ID (press Enter to skip): ");
+                String newCustomerID = scanner.nextLine().trim();
+                if (!newCustomerID.isEmpty()) {
+                    repairAndService_updates.put("customerID", newCustomerID);
+                }
+
+                System.out.print("Enter new employee ID (press Enter to skip): ");
+                String newEmployeeID = scanner.nextLine().trim();
+                if (!newEmployeeID.isEmpty()) {
+                    repairAndService_updates.put("employeeID", newEmployeeID);
+                }
+
+                repairServiceController.updateRepairAndService(repairAndServiceIdToUpdate, repairAndService_updates);
                 break;
             case 4:
                 ArrayList<RepairService> repairServices = repairServiceController.getAllRepairServices();

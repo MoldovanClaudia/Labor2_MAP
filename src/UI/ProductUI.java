@@ -6,6 +6,8 @@ import Domain.ProductStore;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ProductUI {
@@ -60,7 +62,42 @@ public class ProductUI {
                 }
                 break;
             case 3:
-                // Implement functionality for updating
+                System.out.print("Enter product ID to update: ");
+                int productIdToUpdate = scanner.nextInt();
+
+                Map<String, String> product_updates = new HashMap<>();
+
+                System.out.print("Enter new product name (press Enter to skip): ");
+                String newProductName = scanner.nextLine().trim();
+                if (!newProductName.isEmpty()) {
+                    product_updates.put("productName", newProductName);
+                }
+
+                System.out.print("Enter new product description (press Enter to skip): ");
+                String newProductDescription = scanner.nextLine().trim();
+                if (!newProductDescription.isEmpty()) {
+                    product_updates.put("productDescription", newProductDescription);
+                }
+
+                System.out.print("Enter new category (press Enter to skip): ");
+                String newCategory = scanner.nextLine().trim();
+                if (!newCategory.isEmpty()) {
+                    product_updates.put("category", newCategory);
+                }
+
+                System.out.print("Enter new price (press Enter to skip): ");
+                String newPrice = scanner.nextLine().trim();
+                if (!newPrice.isEmpty()) {
+                    product_updates.put("price", newPrice);
+                }
+
+                System.out.print("Enter new quantity (press Enter to skip): ");
+                String newQuantity = scanner.nextLine().trim();
+                if (!newQuantity.isEmpty()) {
+                    product_updates.put("quantity", newQuantity);
+                }
+
+                productController.updateProduct(productIdToUpdate, product_updates);
                 break;
             case 4:
                 ArrayList<Product> products = productController.getAllProducts();

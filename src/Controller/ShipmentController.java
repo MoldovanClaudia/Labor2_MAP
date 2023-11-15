@@ -1,10 +1,12 @@
 package Controller;
 
+import Domain.Customer;
 import Domain.Shipment;
 import Domain.Store;
 import InMemoryRepository.ShipmentRepository;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ShipmentController {
     private final ShipmentRepository shipmentRepository;
@@ -24,8 +26,23 @@ public class ShipmentController {
 
     }
 
-    public void updateShipment(Shipment oldShipment, Shipment newShipment) {
-        shipmentRepository.updateItem(oldShipment, newShipment);
+    public void updateShipment(int shipmentId, Map<String, String> shipment_updates) {
+        Shipment oldShipment = shipmentRepository.findById(shipmentId);
+
+        if (oldShipment != null) {
+            Shipment newShipment = new Shipment(
+                    oldShipment.getShipmentId(),
+                    oldShipment.getOrderId(),
+                    shipment_updates.containsKey("companyName") ? shipment_updates.get("companyName") : oldShipment.getCompany(),
+                    shipment_updates.containsKey("place") ? shipment_updates.get("place") : oldShipment.getPlace()
+            );
+
+
+            shipmentRepository.updateItem(oldShipment, newShipment);
+            System.out.println("Shipment updated successfully.");
+        } else {
+            System.out.println("Shipment not found.");
+        }
     }
 
     public ArrayList<Shipment> getAllShipments() {

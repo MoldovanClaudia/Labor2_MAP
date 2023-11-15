@@ -4,6 +4,8 @@ import Controller.StoreController;
 import Domain.Store;
 
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -48,7 +50,24 @@ public class StoreUI {
                 }
                 break;
             case 3:
-                // Implement functionality for updating
+                System.out.print("Enter store ID to update: ");
+                int storeIdToUpdate = scanner.nextInt();
+
+                Map<String, String> store_updates = new HashMap<>();
+
+                System.out.print("Enter new store name (press Enter to skip): ");
+                String newStoreName = scanner.nextLine().trim();
+                if (!newStoreName.isEmpty()) {
+                    store_updates.put("storeName", newStoreName);
+                }
+
+                System.out.print("Enter new store address (press Enter to skip): ");
+                String newStoreAddress = scanner.nextLine().trim();
+                if (!newStoreAddress.isEmpty()) {
+                    store_updates.put("storeAddress", newStoreAddress);
+                }
+
+                storeController.updateStore(storeIdToUpdate, store_updates);
                 break;
             case 4:
                 ArrayList<Store> stores = storeController.getAllStores();

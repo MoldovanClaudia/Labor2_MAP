@@ -9,6 +9,7 @@ import InMemoryRepository.ProductRepository;
 import InMemoryRepository.ProductStoreRepository;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ProductController {
     private final ProductRepository productRepository;
@@ -32,9 +33,26 @@ public class ProductController {
 
     }
 
-    public void updateProduct(Product oldProduct, Product newProduct, ProductStore oldProductStore, ProductStore newProductStore) {
-        productRepository.updateItem(oldProduct, newProduct);
-        productStoreRepository.updateItem(oldProductStore, newProductStore);
+    public void updateProduct(int productId, Map<String, String> product_updates) {
+        Product oldProduct = productRepository.findById(productId);
+
+        if (oldProduct != null) {
+            Product newProduct = new Product(
+                    oldProduct.getProductId(),
+                    product_updates.containsKey("productName") ? product_updates.get("productName") : oldProduct.getName(),
+                    product_updates.containsKey("productDescription") ? product_updates.get("productDescription") : oldProduct.getDescription(),
+                    product_updates.containsKey("category") ? product_updates.get("category") : oldProduct.getCategory(),
+                    oldProduct.getPrice(),
+                    oldProduct.getSupplierId(),
+                    oldProduct.getQuantity()
+            );
+
+
+            productRepository.updateItem(oldProduct, newProduct);
+            System.out.println("Product updated successfully.");
+        } else {
+            System.out.println("Product not found.");
+        }
     }
 
     public ArrayList<Product> getAllProducts() {

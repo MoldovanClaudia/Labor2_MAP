@@ -3,6 +3,8 @@ package UI;
 import Controller.SupplierController;
 import Domain.Supplier;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -47,7 +49,24 @@ public class SupplierUI {
                 }
                 break;
             case 3:
-                // Implement functionality for updating
+                System.out.print("Enter supplier ID to update: ");
+                int supplierIdToUpdate = scanner.nextInt();
+
+                Map<String, String> supplier_updates = new HashMap<>();
+
+                System.out.print("Enter new supplier name (press Enter to skip): ");
+                String newSupplierName = scanner.nextLine().trim();
+                if (!newSupplierName.isEmpty()) {
+                    supplier_updates.put("supplierName", newSupplierName);
+                }
+
+                System.out.print("Enter new supplier contact (press Enter to skip): ");
+                String newSupplierContact = scanner.nextLine().trim();
+                if (!newSupplierContact.isEmpty()) {
+                    supplier_updates.put("supplierContact", newSupplierContact);
+                }
+
+                supplierController.updateSupplier(supplierIdToUpdate, supplier_updates);
                 break;
             case 4:
                 ArrayList<Supplier> suppliers = supplierController.getAllSuppliers();

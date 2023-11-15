@@ -1,10 +1,12 @@
 package Controller;
 
+import Domain.Customer;
 import Domain.ReviewAndRating;
 import Domain.Shipment;
 import InMemoryRepository.ReviewAndRatingRepository;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ReviewAndRatingController {
     private final ReviewAndRatingRepository reviewAndRatingRepository;
@@ -28,8 +30,23 @@ public class ReviewAndRatingController {
 
     }
 
-    public void updateReviewAndRating(ReviewAndRating oldReview, ReviewAndRating newReview) {
-        reviewAndRatingRepository.updateItem(oldReview, newReview);
+    public void updateReviewAndRating(int reviewAndRatingId, Map<String, String> reviewAndRating_updates) {
+        ReviewAndRating oldReviewAndRating = reviewAndRatingRepository.findById(reviewAndRatingId);
+
+        if (oldReviewAndRating != null) {
+            ReviewAndRating newReviewAndRating = new ReviewAndRating(
+                    oldReviewAndRating.getReviewId(),
+                    oldReviewAndRating.getProductId(),
+                    oldReviewAndRating.getCustomerId(),
+                    oldReviewAndRating.getRating()
+            );
+
+
+            reviewAndRatingRepository.updateItem(oldReviewAndRating, newReviewAndRating);
+            System.out.println("Review updated successfully.");
+        } else {
+            System.out.println("Review not found.");
+        }
     }
 
     public ArrayList<ReviewAndRating> getAllReviewAndRatings() {
