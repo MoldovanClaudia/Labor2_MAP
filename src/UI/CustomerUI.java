@@ -5,6 +5,8 @@ import Domain.Customer;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CustomerUI {
     public void CustomerCase(CustomerController customerController) {
@@ -43,7 +45,37 @@ public class CustomerUI {
                 System.out.println("Customer deleted successfully.");
                 break;
             case 3:
-                // Implement functionality for updating
+                System.out.print("Enter customer ID to update: ");
+                int customerIdToUpdate = scanner.nextInt();
+
+                Map<String, String> updates = new HashMap<>();
+
+                // Collect the attribute-value pairs to update
+                System.out.print("Enter new first name (press Enter to skip): ");
+                String newFirstName = scanner.nextLine().trim();
+                if (!newFirstName.isEmpty()) {
+                    updates.put("firstName", newFirstName);
+                }
+
+                System.out.print("Enter new last name (press Enter to skip): ");
+                String newLastName = scanner.nextLine().trim();
+                if (!newLastName.isEmpty()) {
+                    updates.put("lastName", newLastName);
+                }
+
+                System.out.print("Enter new contact (press Enter to skip): ");
+                String newContact = scanner.nextLine().trim();
+                if (!newContact.isEmpty()) {
+                    updates.put("contact", newContact);
+                }
+
+                System.out.print("Enter new billing address (press Enter to skip): ");
+                String newBillingAddress = scanner.nextLine().trim();
+                if (!newBillingAddress.isEmpty()) {
+                    updates.put("billingAddress", newBillingAddress);
+                }
+
+                customerController.updateCustomer(customerIdToUpdate, updates);
                 break;
             case 4:
                 ArrayList<Customer> customers = customerController.getAllCustomers();
