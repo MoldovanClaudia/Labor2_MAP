@@ -4,6 +4,8 @@ import Controller.JobController;
 import Domain.Job;
 
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -42,7 +44,24 @@ public class JobUI {
                 System.out.println("Job deleted successfully.");
                 break;
             case 3:
-                // Implement functionality for updating
+                System.out.print("Enter job ID to update: ");
+                int jobIdToUpdate = scanner.nextInt();
+
+                Map<String, String> job_updates = new HashMap<>();
+
+                System.out.print("Enter new job name (press Enter to skip): ");
+                String newJobName = scanner.nextLine().trim();
+                if (!newJobName.isEmpty()) {
+                    job_updates.put("jobName", newJobName);
+                }
+
+                System.out.print("Enter new job description (press Enter to skip): ");
+                String newJobDescription = scanner.nextLine().trim();
+                if (!newJobDescription.isEmpty()) {
+                    job_updates.put("jobDescription", newJobDescription);
+                }
+
+                jobController.updateJob(jobIdToUpdate, job_updates);
                 break;
             case 4:
                 ArrayList<Job> jobs = jobController.getAllJobs();

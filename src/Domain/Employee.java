@@ -29,6 +29,13 @@ public class Employee {
         this.employeeContact = employeeContact;
     }
 
+    public Employee(int employeeId, String employeeFirstName, String employeeLastName, String employeeContact, int jobId, int storeId) {
+        this(employeeId, employeeFirstName, employeeLastName, employeeContact);
+        this.jobId = jobId;
+        this.storeId = storeId;
+    }
+
+
 
     @Override
     public String toString() {

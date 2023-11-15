@@ -4,6 +4,8 @@ import Controller.EmployeeController;
 import Domain.Employee;
 
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -43,7 +45,30 @@ public class EmployeeUI {
                 System.out.println("Employee deleted successfully.");
                 break;
             case 3:
-                // Implement functionality for updating
+                System.out.print("Enter employee ID to update: ");
+                int employeeIdToUpdate = scanner.nextInt();
+
+                Map<String, String> employee_updates = new HashMap<>();
+
+                System.out.print("Enter new first name (press Enter to skip): ");
+                String newFirstName = scanner.nextLine().trim();
+                if (!newFirstName.isEmpty()) {
+                    employee_updates.put("firstName", newFirstName);
+                }
+
+                System.out.print("Enter new last name (press Enter to skip): ");
+                String newLastName = scanner.nextLine().trim();
+                if (!newLastName.isEmpty()) {
+                    employee_updates.put("lastName", newLastName);
+                }
+
+                System.out.print("Enter new contact (press Enter to skip): ");
+                String newContact = scanner.nextLine().trim();
+                if (!newContact.isEmpty()) {
+                    employee_updates.put("contact", newContact);
+                }
+
+                employeeController.updateEmployee(employeeIdToUpdate, employee_updates);
                 break;
             case 4:
                 ArrayList<Employee> employees = employeeController.getAllEmployees();

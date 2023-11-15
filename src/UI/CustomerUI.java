@@ -48,34 +48,33 @@ public class CustomerUI {
                 System.out.print("Enter customer ID to update: ");
                 int customerIdToUpdate = scanner.nextInt();
 
-                Map<String, String> updates = new HashMap<>();
+                Map<String, String> customer_updates = new HashMap<>();
 
-                // Collect the attribute-value pairs to update
                 System.out.print("Enter new first name (press Enter to skip): ");
                 String newFirstName = scanner.nextLine().trim();
                 if (!newFirstName.isEmpty()) {
-                    updates.put("firstName", newFirstName);
+                    customer_updates.put("firstName", newFirstName);
                 }
 
                 System.out.print("Enter new last name (press Enter to skip): ");
                 String newLastName = scanner.nextLine().trim();
                 if (!newLastName.isEmpty()) {
-                    updates.put("lastName", newLastName);
+                    customer_updates.put("lastName", newLastName);
                 }
 
                 System.out.print("Enter new contact (press Enter to skip): ");
                 String newContact = scanner.nextLine().trim();
                 if (!newContact.isEmpty()) {
-                    updates.put("contact", newContact);
+                    customer_updates.put("contact", newContact);
                 }
 
                 System.out.print("Enter new billing address (press Enter to skip): ");
                 String newBillingAddress = scanner.nextLine().trim();
                 if (!newBillingAddress.isEmpty()) {
-                    updates.put("billingAddress", newBillingAddress);
+                    customer_updates.put("billingAddress", newBillingAddress);
                 }
 
-                customerController.updateCustomer(customerIdToUpdate, updates);
+                customerController.updateCustomer(customerIdToUpdate, customer_updates);
                 break;
             case 4:
                 ArrayList<Customer> customers = customerController.getAllCustomers();

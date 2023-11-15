@@ -23,16 +23,16 @@ public class CustomerController{
 
     }
 
-    public void updateCustomer(int customerId, Map<String, String> updates) {
+    public void updateCustomer(int customerId, Map<String, String> customer_updates) {
         Customer oldCustomer = customerRepository.findById(customerId);
 
         if (oldCustomer != null) {
             Customer newCustomer = new Customer(
                     oldCustomer.getCustomerIdId(),
-                    updates.containsKey("firstName") ? updates.get("firstName") : oldCustomer.getFirstName(),
-                    updates.containsKey("lastName") ? updates.get("lastName") : oldCustomer.getLastName(),
-                    updates.containsKey("contact") ? updates.get("contact") : oldCustomer.getContact(),
-                    updates.containsKey("billingAddress") ? updates.get("billingAddress") : oldCustomer.getBillingAddress()
+                    customer_updates.containsKey("firstName") ? customer_updates.get("firstName") : oldCustomer.getFirstName(),
+                    customer_updates.containsKey("lastName") ? customer_updates.get("lastName") : oldCustomer.getLastName(),
+                    customer_updates.containsKey("contact") ? customer_updates.get("contact") : oldCustomer.getContact(),
+                    customer_updates.containsKey("billingAddress") ? customer_updates.get("billingAddress") : oldCustomer.getBillingAddress()
             );
 
 

@@ -1,4 +1,5 @@
 package Controller;
+import Domain.Customer;
 import Domain.Job;
 import Domain.Order;
 import Domain.ProductOrder;
@@ -6,6 +7,7 @@ import InMemoryRepository.OrderRepository;
 import InMemoryRepository.ProductOrderRepository;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class OrderController {
     private final OrderRepository orderRepository;
@@ -34,6 +36,25 @@ public class OrderController {
         orderRepository.updateItem(oldOrder, newOrder);
         productOrderRepository.updateItem(oldProductOrder,newProductOrder);
     }
+
+    public void updateOrder(int orderId, Map<String, String> order_updates) {
+        Order oldOrder = orderRepository.findById(orderId);
+
+        if (oldOrder != null) {
+            Order newOrder = new Order(
+                    oldOrder.getOrderId(),
+                    oldOrder.getCustomerId(),
+                    order_updates.containsKey("orderDate") ? order_updates.get("oderDate") : oldOrder.getOrderDate()
+            );
+
+
+            orderRepository.updateItem(oldOrder, newOrder);
+            System.out.println("Order updated successfully.");
+        } else {
+            System.out.println("Order not found.");
+        }
+    }
+
     public ArrayList<Order> getAllOrders() {
         return orderRepository.getAllItems();
     }

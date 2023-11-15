@@ -6,6 +6,8 @@ import Domain.ProductOrder;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class OrderUI {
@@ -52,7 +54,18 @@ public class OrderUI {
                 }
                 break;
             case 3:
-                // Implement functionality for updating
+                System.out.print("Enter order ID to update: ");
+                int orderIdToUpdate = scanner.nextInt();
+
+                Map<String, String> order_updates = new HashMap<>();
+
+                System.out.print("Enter new order date (press Enter to skip): ");
+                String newOrderDate = scanner.nextLine().trim();
+                if (!newOrderDate.isEmpty()) {
+                    order_updates.put("order date", newOrderDate);
+                }
+
+                orderController.updateOrder(orderIdToUpdate, order_updates);
                 break;
             case 4:
                 ArrayList<Order> orders = orderController.getAllOrders();
