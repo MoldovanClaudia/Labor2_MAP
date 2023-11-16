@@ -10,6 +10,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class JobUI {
+    private static JobUI instance;
+
+    private JobUI() {
+    }
+
+    public static synchronized JobUI getInstance() {
+        if (instance == null) {
+            instance = new JobUI();
+        }
+        return instance;
+    }
     public void JobCase(JobController jobController) {
         Scanner scanner = new Scanner(System.in);
 

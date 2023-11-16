@@ -11,6 +11,17 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class OrderUI {
+    private static OrderUI instance;
+
+    private OrderUI() {
+    }
+
+    public static synchronized OrderUI getInstance() {
+        if (instance == null) {
+            instance = new OrderUI();
+        }
+        return instance;
+    }
     public void OrderCase(OrderController orderController) {
         Scanner scanner = new Scanner(System.in);
 

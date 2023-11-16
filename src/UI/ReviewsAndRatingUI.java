@@ -10,6 +10,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class ReviewsAndRatingUI {
+    private static ReviewsAndRatingUI instance;
+
+    private ReviewsAndRatingUI() {
+    }
+
+    public static synchronized ReviewsAndRatingUI getInstance() {
+        if (instance == null) {
+                instance = new ReviewsAndRatingUI();
+        }
+        return instance;
+    }
     public void ReviewAndRatingCase(ReviewAndRatingController reviewAndRatingController) {
         Scanner scanner = new Scanner(System.in);
 

@@ -9,6 +9,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class SupplierUI {
+    private static SupplierUI instance;
+
+    private SupplierUI() {
+    }
+
+    public static synchronized SupplierUI getInstance() {
+        if (instance == null) {
+            instance = new SupplierUI();
+        }
+        return instance;
+    }
     public void SupplierCase(SupplierController supplierController) {
         Scanner scanner = new Scanner(System.in);
 

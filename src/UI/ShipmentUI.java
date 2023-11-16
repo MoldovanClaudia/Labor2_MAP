@@ -10,6 +10,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class ShipmentUI {
+    private static ShipmentUI instance;
+
+    private ShipmentUI() {
+    }
+
+    public static synchronized ShipmentUI getInstance() {
+        if (instance == null) {
+            instance = new ShipmentUI();
+        }
+        return instance;
+    }
     public void ShipmentCase(ShipmentController shipmentController) {
         Scanner scanner = new Scanner(System.in);
 
