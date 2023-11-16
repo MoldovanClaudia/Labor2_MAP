@@ -1,6 +1,8 @@
 package Domain;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Product {
+public class Product implements Observable {
     private int productId;
     private String name;
     private String description;
@@ -8,6 +10,7 @@ public class Product {
     private float price;
     private int supplierId;
     private int quantity;
+    private List<Observer> observers = new ArrayList<>();
 
     public Product(int id, String name, String description, String category, float price, int supplierId, int quantity) {
         this.productId = id;
@@ -51,7 +54,10 @@ public class Product {
     }
 
     public void setPrice(float price) {
-        this.price = price;
+        if (this.price != price) {
+            this.price = price;
+            notifyObservers("price: ", price);
+        }
     }
 
     public int getSupplierId() {
@@ -67,7 +73,10 @@ public class Product {
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
+        if (this.quantity != quantity){
+            this.quantity = quantity;
+            notifyObservers("quantity: ", quantity);
+        }
     }
 
     @Override
@@ -93,5 +102,28 @@ public class Product {
         }
         Product product = (Product) obj;
         return productId == product.productId;
+    }
+
+    private void notifyObservers(String propertyName, Object value) {
+        for (Observer observer : observers) {
+            observer.update(this, propertyName, value);
+        }
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this, "", null);
+        }
     }
 }
