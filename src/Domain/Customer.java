@@ -1,6 +1,6 @@
 package Domain;
 
-public class Customer {
+public class Customer implements Observer {
     private int customerId;
     private String firstName;
     private String lastName;
@@ -64,6 +64,22 @@ public class Customer {
         }
         Customer customer = (Customer) obj;
         return customerId == customer.customerId;
+    }
+
+    @Override
+    public void update(Observable observable, String propertyName, Object value) {
+        if (observable instanceof Product) {
+            Product product = (Product) observable;
+
+            if(propertyName.equals("price")) {
+                System.out.println("Price of product " + product.getName() + "has changed to: " + value);
+            } else if (propertyName.equals("quantity")) {
+                int newQuantity = (int) value;
+                if (newQuantity < 5) {
+                    System.out.println("PSST: Quantity of product " + product.getName() + " is running low!!!");
+                }
+            }
+        }
     }
 
 }

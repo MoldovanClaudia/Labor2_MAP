@@ -7,6 +7,7 @@ import Domain.ProductStore;
 import InMemoryRepository.ProductOrderRepository;
 import InMemoryRepository.ProductRepository;
 import InMemoryRepository.ProductStoreRepository;
+import InMemoryRepository.CustomerRepository;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -14,10 +15,12 @@ import java.util.Map;
 public class ProductController {
     private final ProductRepository productRepository;
     private final ProductStoreRepository productStoreRepository;
+    private final CustomerRepository customerRepository;
 
-    public ProductController(ProductRepository productRepository, ProductStoreRepository productStoreRepository) {
+    public ProductController(ProductRepository productRepository, ProductStoreRepository productStoreRepository, CustomerRepository customerRepository) {
         this.productRepository = productRepository;
         this.productStoreRepository= productStoreRepository;
+        this.customerRepository = customerRepository;
     }
 
     public void addProduct(int id, String name, String description, String category, float price, int supplierId, int quantity, int storeID) {
@@ -25,6 +28,11 @@ public class ProductController {
         productRepository.addItem(newProduct);
         ProductStore newProductStore = new ProductStore(id, storeID);
         productStoreRepository.addItem(newProductStore);
+
+        // adding the new custoer also as a new observer
+        for (Customer customer : customerRepository.getAllItems()) {
+            newProduct.addObserver(customer);
+        }
     }
 
     public void deleteProduct(int productId) {

@@ -121,9 +121,11 @@ public class Product implements Observable {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObervers() {
         for (Observer observer : observers) {
             observer.update(this, "", null);
         }
     }
+
+
 }
