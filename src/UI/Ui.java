@@ -8,6 +8,14 @@ import InMemoryRepository.*;
 
 
 public class Ui {
+    private static Ui instance;
+
+    public synchronized static Ui getInstance() {
+        if (instance == null) {
+            instance = new Ui();
+        }
+        return instance;
+    }
     static CustomerRepository customerRepository = new CustomerRepository();
     static CustomerController customerController = new CustomerController(customerRepository);
 
