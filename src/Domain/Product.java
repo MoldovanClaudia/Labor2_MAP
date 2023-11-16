@@ -22,6 +22,7 @@ public class Product implements Observable {
         this.quantity = quantity;
     }
 
+    public Product() { this.observers = new ArrayList<>();}
     public int getProductId() { return this.productId; }
 
     public void setProductId(int productId) { this.productId = productId; }
@@ -49,16 +50,7 @@ public class Product implements Observable {
         this.category = category;
     }
 
-    public float getPrice() {
-        return this.price;
-    }
-
-    public void setPrice(float price) {
-        if (this.price != price) {
-            this.price = price;
-            notifyObservers("price: ", price);
-        }
-    }
+    public float getPrice() {return this.price;}
 
     public int getSupplierId() {
         return this.supplierId;
@@ -70,13 +62,6 @@ public class Product implements Observable {
 
     public int getQuantity() {
         return this.quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        if (this.quantity != quantity){
-            this.quantity = quantity;
-            notifyObservers("quantity: ", quantity);
-        }
     }
 
     @Override
@@ -104,7 +89,8 @@ public class Product implements Observable {
         return productId == product.productId;
     }
 
-    private void notifyObservers(String propertyName, Object value) {
+    @Override
+    public void notifyObservers(String propertyName, Object value) {
         for (Observer observer : observers) {
             observer.update(this, propertyName, value);
         }
@@ -120,12 +106,18 @@ public class Product implements Observable {
         observers.remove(observer);
     }
 
-    @Override
-    public void notifyObervers() {
-        for (Observer observer : observers) {
-            observer.update(this, "", null);
+    public void setPrice(float price) {
+        if (this.price != price) {
+            this.price = price;
+            notifyObservers("price: ", price);
         }
     }
 
+    public void setQuantity(int quantity) {
+        if (this.quantity != quantity){
+            this.quantity = quantity;
+            notifyObservers("quantity: ", quantity);
+        }
+    }
 
 }
