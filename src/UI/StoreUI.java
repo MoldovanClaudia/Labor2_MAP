@@ -10,6 +10,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class StoreUI {
+    private static StoreUI instance;
+
+    private StoreUI() {
+    }
+
+    public static synchronized StoreUI getInstance() {
+        if (instance == null) {
+            instance = new StoreUI();
+        }
+        return instance;
+    }
     public void StoreCase(StoreController storeController) {
         Scanner scanner = new Scanner(System.in);
 

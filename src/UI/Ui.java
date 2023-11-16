@@ -71,52 +71,52 @@ public class Ui {
             switch (choice) {
                 case 1:
                     System.out.println("You selected 'Customers.'");
-                    CustomerUI customerUI = new CustomerUI();
+                    CustomerUI customerUI = CustomerUI.getInstance();
                     customerUI.CustomerCase(customerController);
                     break;
                 case 2:
                     System.out.println("You selected 'Employees.'");
-                    EmployeeUI employeeUI = new EmployeeUI();
+                    EmployeeUI employeeUI = EmployeeUI.getInstance();
                     employeeUI.EmployeeCase(employeeController);
                     break;
                 case 3:
                     System.out.println("You selected 'Jobs.'");
-                    JobUI jobUI = new JobUI();
+                    JobUI jobUI = JobUI.getInstance();
                     jobUI.JobCase(jobController);
                     break;
                 case 4:
                     System.out.println("You selected 'Orders.'");
-                    OrderUI orderUI = new OrderUI();
+                    OrderUI orderUI = OrderUI.getInstance();
                     orderUI.OrderCase(orderController);
                     break;
                 case 5:
                     System.out.println("You selected 'Products.'");
-                    ProductUI productUI = new ProductUI();
+                    ProductUI productUI = ProductUI.getInstance();
                     productUI.ProductCase(productController);
                     break;
                 case 6:
                     System.out.println("You selected 'Repair Service.'");
-                    RepairServiceUI repairServiceUI = new RepairServiceUI();
+                    RepairServiceUI repairServiceUI = RepairServiceUI.getInstance();
                     repairServiceUI.RepairServiceCase(repairServiceController);
                     break;
                 case 7:
                     System.out.println("You selected 'Reviews and Ratings.'");
-                    ReviewsAndRatingUI reviewsAndRatingUI = new ReviewsAndRatingUI();
+                    ReviewsAndRatingUI reviewsAndRatingUI = ReviewsAndRatingUI.getInstance();
                     reviewsAndRatingUI.ReviewAndRatingCase(reviewAndRatingController);
                     break;
                 case 8:
                     System.out.println("You selected 'Shipments.'");
-                    ShipmentUI shipmentUI = new ShipmentUI();
+                    ShipmentUI shipmentUI = ShipmentUI.getInstance();
                     shipmentUI.ShipmentCase(shipmentController);
                     break;
                 case 9:
                     System.out.println("You selected 'Stores.'");
-                    StoreUI storeUI = new StoreUI();
+                    StoreUI storeUI = StoreUI.getInstance();
                     storeUI.StoreCase(storeController);
                     break;
                 case 10:
                     System.out.println("You selected 'Suppliers.'");
-                    SupplierUI supplierUI = new SupplierUI();
+                    SupplierUI supplierUI = SupplierUI.getInstance();
                     supplierUI.SupplierCase(supplierController);
                     break;
                 case 11:

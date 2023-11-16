@@ -10,6 +10,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class EmployeeUI {
+    private static EmployeeUI instance;
+
+    private EmployeeUI() {
+    }
+
+    public static synchronized EmployeeUI getInstance() {
+        if (instance == null) {
+            instance = new EmployeeUI();
+        }
+        return instance;
+    }
     public void EmployeeCase(EmployeeController employeeController) {
         Scanner scanner = new Scanner(System.in);
 

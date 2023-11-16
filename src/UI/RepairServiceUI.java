@@ -9,6 +9,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class RepairServiceUI {
+    private static RepairServiceUI instance;
+
+    private RepairServiceUI() {
+    }
+
+    public static synchronized RepairServiceUI getInstance() {
+        if (instance == null) {
+                instance = new RepairServiceUI();
+        }
+        return instance;
+    }
     public void RepairServiceCase(RepairServiceController repairServiceController) {
         Scanner scanner = new Scanner(System.in);
 

@@ -11,6 +11,17 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ProductUI {
+    private static ProductUI instance;
+
+    private ProductUI() {
+    }
+
+    public static synchronized ProductUI getInstance() {
+        if (instance == null) {
+            instance = new ProductUI();
+        }
+        return instance;
+    }
     public void ProductCase(ProductController productController) {
         Scanner scanner = new Scanner(System.in);
 

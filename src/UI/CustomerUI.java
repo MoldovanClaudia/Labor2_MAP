@@ -9,6 +9,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CustomerUI {
+    private static CustomerUI instance;
+
+    private CustomerUI() {
+    }
+
+    public static synchronized CustomerUI getInstance() {
+        if (instance == null) {
+            instance = new CustomerUI();
+        }
+        return instance;
+    }
     public void CustomerCase(CustomerController customerController) {
         Scanner scanner = new Scanner(System.in);
 
