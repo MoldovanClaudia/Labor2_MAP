@@ -8,6 +8,14 @@ import InMemoryRepository.*;
 
 
 public class Ui {
+    private static Ui instance;
+
+    public synchronized static Ui getInstance() {
+        if (instance == null) {
+            instance = new Ui();
+        }
+        return instance;
+    }
     static CustomerRepository customerRepository = new CustomerRepository();
     static CustomerController customerController = new CustomerController(customerRepository);
 
@@ -38,7 +46,7 @@ public class Ui {
 
     static ProductRepository productRepository = new ProductRepository();
     static ProductStoreRepository productStoreRepository = new ProductStoreRepository();
-    static ProductController productController = new ProductController(productRepository, productStoreRepository);
+    static ProductController productController = new ProductController(productRepository, productStoreRepository, customerRepository);
     public static void main() {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
