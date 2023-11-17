@@ -2,6 +2,15 @@ package Domain;
 
 public class BasicShipmentDecorator implements ShipmentDecorator {
     private Shipment shipment;
+    private String freeShipment;
+
+    public String getFreeShipment() {
+        return this.freeShipment;
+    }
+
+    public void setFreeShipment(String freeShipment) {
+        this.freeShipment = freeShipment;
+    }
 
     public BasicShipmentDecorator(Shipment shipment) {
         this.shipment = shipment;

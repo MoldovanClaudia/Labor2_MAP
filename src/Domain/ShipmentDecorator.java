@@ -2,5 +2,4 @@ package Domain;
 
 public interface ShipmentDecorator {
     String getAdditionalInfo();
-    int getShipmentId();
 }

@@ -5,21 +5,21 @@ import Domain.ShipmentDecorator;
 
 import java.util.ArrayList;
 
-public class ShipmentRepository implements InMemoryRepository<ShipmentDecorator> {
-    private final ArrayList<ShipmentDecorator> shipments = new ArrayList<ShipmentDecorator>();
+public class ShipmentRepository implements InMemoryRepository<Shipment> {
+    private final ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 
     @Override
-    public void addItem(ShipmentDecorator newShipment) {
+    public void addItem(Shipment newShipment) {
         shipments.add(newShipment);
     }
 
     @Override
-    public void deleteItem(ShipmentDecorator shipmentToBeDeleted) {
+    public void deleteItem(Shipment shipmentToBeDeleted) {
         shipments.remove(shipmentToBeDeleted);
     }
 
     @Override
-    public void updateItem(ShipmentDecorator oldShipment, ShipmentDecorator newShipment) {
+    public void updateItem(Shipment oldShipment, Shipment newShipment) {
         int index = shipments.indexOf(oldShipment);
         if (index != -1) {
             shipments.set(index,newShipment);
@@ -27,13 +27,13 @@ public class ShipmentRepository implements InMemoryRepository<ShipmentDecorator>
     }
 
     @Override
-    public ArrayList<ShipmentDecorator> getAllItems() {
+    public ArrayList<Shipment> getAllItems() {
         return shipments;
     }
 
     @Override
-    public ShipmentDecorator findById(int shipmentId) {
-        for(ShipmentDecorator shipment : shipments) {
+    public Shipment findById(int shipmentId) {
+        for(Shipment shipment : shipments) {
             if (shipment.getShipmentId() == shipmentId) {
                 return shipment;
             }
