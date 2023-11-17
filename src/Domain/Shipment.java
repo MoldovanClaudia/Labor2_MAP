@@ -1,6 +1,6 @@
 package Domain;
 
-public class Shipment {
+public class Shipment implements ShipmentDecorator {
     private int shipmentId;
     private int orderId;
     private String company;
@@ -63,5 +63,10 @@ public class Shipment {
         }
         Shipment shipment = (Shipment) obj;
         return shipmentId == shipment.shipmentId;
+    }
+
+    @Override
+    public String getAdditionalInfo() {
+        return "Your order will be shipped as son as possible. Thank you for your patience.";
     }
 }

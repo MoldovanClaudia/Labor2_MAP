@@ -1,15 +1,15 @@
 package Domain;
 
-public class UrgentShippmentDecorator implements ShipmentDecorator {
+public class SameDayShipmentDecorator implements ShipmentDecorator {
     private Shipment shipment;
 
-    public UrgentShippmentDecorator(Shipment shipment) {
+    public SameDayShipmentDecorator(Shipment shipment) {
         this.shipment = shipment;
     }
 
     @Override
     public String getAdditionalInfo() {
-        return "Your order will be shipped in 1-2 working days. Thank you for your patience.";
+        return "Your order will be shipped today, the courier will be right with you!";
     }
 
     @Override

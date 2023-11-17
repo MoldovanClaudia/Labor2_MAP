@@ -1,8 +1,6 @@
 package Controller;
 
-import Domain.Customer;
-import Domain.Shipment;
-import Domain.Store;
+import Domain.*;
 import InMemoryRepository.ShipmentRepository;
 
 import java.util.ArrayList;
@@ -18,6 +16,24 @@ public class ShipmentController {
     public void addShipment(int shipmentId, int orderId, String company,String place) {
         Shipment newShipment = new Shipment(shipmentId, orderId, company, place);
         shipmentRepository.addItem(newShipment);
+    }
+
+    public void addBasicShipment(int shipmentId, int orderId, String company, String place) {
+        Shipment basicShipment = new Shipment(shipmentId, orderId, company, place);
+        BasicShipmentDecorator basicDecorator = new BasicShipmentDecorator(basicShipment);
+        shipmentRepository.addItem(basicDecorator);
+    }
+
+    public void addUrgentShipment(int shipmentId, int orderId, String company, String place) {
+        Shipment urgentShipment = new Shipment(shipmentId, orderId, company, place);
+        UrgentShipmentDecorator urgentDecorator = new UrgentShipmentDecorator(urgentShipment);
+        shipmentRepository.addItem(urgentDecorator);
+    }
+
+    public void addSameDayShipment(int shipmentId, int orderId, String company, String place) {
+        Shipment sameDayShipment = new Shipment(shipmentId, orderId, company, place);
+        SameDayShipmentDecorator sameDayDecorator = new SameDayShipmentDecorator(sameDayShipment);
+        shipmentRepository.addItem(sameDayDecorator);
     }
 
     public void deleteShipment(int shipmentId) {
@@ -45,7 +61,7 @@ public class ShipmentController {
         }
     }
 
-    public ArrayList<Shipment> getAllShipments() {
+    public ArrayList<ShipmentDecorator> getAllShipments() {
         return shipmentRepository.getAllItems();
     }
 }
