@@ -2,8 +2,9 @@ package UI;
 
 import Controller.ProductController;
 import Domain.Product;
+import Domain.ProductLaptop;
+import Domain.ProductPhone;
 import Domain.ProductStore;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,9 +23,9 @@ public class ProductUI {
         }
         return instance;
     }
+
     public void ProductCase(ProductController productController) {
         Scanner scanner = new Scanner(System.in);
-
 
         System.out.println("1. Add Product");
         System.out.println("2. Delete Product");
@@ -52,7 +53,8 @@ public class ProductUI {
                 System.out.print("Enter store ID: ");
                 int storeID = scanner.nextInt();
 
-                productController.addProduct(productID, productName, productDescription, productCategory, productPrice, supplierID, productQuantity, storeID);
+                // Add the new product
+                productController.addProduct(productID,productName,productDescription,productCategory,productPrice,supplierID,productQuantity,storeID);
 
                 System.out.println("Product added successfully.");
                 break;
