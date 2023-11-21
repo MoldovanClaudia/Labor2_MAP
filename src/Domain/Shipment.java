@@ -1,16 +1,20 @@
 package Domain;
 
-public class Shipment implements ShipmentDecorator {
+public class Shipment  {
     private int shipmentId;
     private int orderId;
     private String company;
     private String place;
 
-    public Shipment(int shipmentId, int orderId, String company,String place) {
+    public Shipment(int shipmentId, int orderId, String company, String place) {
         this.shipmentId = shipmentId;
         this.orderId = orderId;
         this.company = company;
         this.place = place;
+    }
+
+    public static ShipmentBuilder builder() {
+        return new ConcreteShipmentBuilder();
     }
 
     public int getShipmentId() {
@@ -65,8 +69,4 @@ public class Shipment implements ShipmentDecorator {
         return shipmentId == shipment.shipmentId;
     }
 
-    @Override
-    public String getAdditionalInfo() {
-        return "Your order will be shipped as son as possible. Thank you for your patience.";
-    }
 }

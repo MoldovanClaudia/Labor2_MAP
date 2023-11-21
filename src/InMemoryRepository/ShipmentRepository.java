@@ -1,7 +1,5 @@
 package InMemoryRepository;
-import Domain.Customer;
 import Domain.Shipment;
-import Domain.ShipmentDecorator;
 
 import java.util.ArrayList;
 
