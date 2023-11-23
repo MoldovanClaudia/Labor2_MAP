@@ -7,7 +7,7 @@ public class OnlineStoreRepository implements InMemoryRepository<OnlineStore> {
     private final ArrayList<OnlineStore> stores = new ArrayList<OnlineStore>();
 
     @Override
-    public static void addItem(OnlineStore newStore) {
+    public void addItem(OnlineStore newStore) {
         stores.add(newStore);
     }
 
@@ -17,7 +17,7 @@ public class OnlineStoreRepository implements InMemoryRepository<OnlineStore> {
     }
 
     @Override
-    public static void updateItem(OnlineStore oldStore, OnlineStore newStore) {
+    public  void updateItem(OnlineStore oldStore, OnlineStore newStore) {
         int index = stores.indexOf(oldStore);
         if (index != -1) {
             stores.set(index,newStore);

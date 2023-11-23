@@ -7,7 +7,7 @@ public class StoreRepository implements InMemoryRepository<Store> {
     private final ArrayList<Store> stores = new ArrayList<Store>();
 
     @Override
-    public static void addItem(Store newStore) {
+    public void addItem(Store newStore) {
         stores.add(newStore);
     }
 
