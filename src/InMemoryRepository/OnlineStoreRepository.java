@@ -1,23 +1,23 @@
 package InMemoryRepository;
 import Domain.Shipment;
-import Domain.Store;
+import Domain.OnlineStore;
 import java.util.ArrayList;
 
-public class StoreRepository implements InMemoryRepository<Store> {
-    private final ArrayList<Store> stores = new ArrayList<Store>();
+public class OnlineStoreRepository implements InMemoryRepository<OnlineStore> {
+    private final ArrayList<OnlineStore> stores = new ArrayList<OnlineStore>();
 
     @Override
-    public static void addItem(Store newStore) {
+    public static void addItem(OnlineStore newStore) {
         stores.add(newStore);
     }
 
     @Override
-    public void deleteItem(Store storeToBeDeleted) {
+    public void deleteItem(OnlineStore storeToBeDeleted) {
         stores.remove(storeToBeDeleted);
     }
 
     @Override
-    public void updateItem(Store oldStore, Store newStore) {
+    public static void updateItem(OnlineStore oldStore, OnlineStore newStore) {
         int index = stores.indexOf(oldStore);
         if (index != -1) {
             stores.set(index,newStore);
@@ -25,13 +25,13 @@ public class StoreRepository implements InMemoryRepository<Store> {
     }
 
     @Override
-    public ArrayList<Store> getAllItems() {
+    public ArrayList<OnlineStore> getAllItems() {
         return stores;
     }
 
     @Override
-    public Store findById(int storeId) {
-        for(Store store : stores) {
+    public OnlineStore findById(int storeId) {
+        for(OnlineStore store : stores) {
             if (store.getStoreId() == storeId) {
                 return store;
             }

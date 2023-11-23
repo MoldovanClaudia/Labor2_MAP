@@ -35,7 +35,10 @@ public class Ui {
     static SupplierController supplierController = new SupplierController(supplierRepository);
 
     static StoreRepository storeRepository = new StoreRepository();
-    static StoreController storeController = new StoreController(storeRepository);
+    static OnlineStoreRepository onlineStoreRepository = new OnlineStoreRepository();
+
+    static StoreFactory storeFactory = new StoreFactory();
+    static StoreController storeController = new StoreController(storeRepository, onlineStoreRepository, storeFactory);
 
     static ShipmentRepository shipmentRepository = new ShipmentRepository();
     static ShipmentController shipmentController = new ShipmentController(shipmentRepository);
