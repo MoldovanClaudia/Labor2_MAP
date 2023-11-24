@@ -31,13 +31,11 @@ public class StoreController {
 
         switch (productType.toLowerCase()) {
             case "normal":
-                Store newNormalStore;
-                newNormalStore = new Store(storeId, name, address);
+                Store newNormalStore = StoreFactory.createStore(storeId, name, address);
                 StoreRepository.addItem(newNormalStore);
                 break;
             case "online":
-                OnlineStore newOnlineStore;
-                newOnlineStore = new OnlineStore(storeId, name, address);
+                OnlineStore newOnlineStore= StoreFactory.createOnlineStore(storeId, name, address);
                 OnlineStoreRepository.addItem(newOnlineStore);
                 break;
 
