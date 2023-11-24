@@ -32,11 +32,11 @@ public class StoreController {
         switch (productType.toLowerCase()) {
             case "normal":
                 Store newNormalStore = StoreFactory.createStore(storeId, name, address);
-                StoreRepository.addItem(newNormalStore);
+                storeRepository.addItem(newNormalStore);
                 break;
             case "online":
                 OnlineStore newOnlineStore= StoreFactory.createOnlineStore(storeId, name, address);
-                OnlineStoreRepository.addItem(newOnlineStore);
+                onlineStoreRepository.addItem(newOnlineStore);
                 break;
 
         }
@@ -88,7 +88,7 @@ public class StoreController {
                             store_updates.containsKey("storeAddress") ? store_updates.get("storeAddress") : oldOnlineStore.getAddress()
 
                     );
-                    OnlineStoreRepository.updateItem(oldOnlineStore, newOnlineStore);
+                    onlineStoreRepository.updateItem(oldOnlineStore, newOnlineStore);
                     System.out.println("Store updated successfully.");
                 } else {
                     System.out.println("Store not found.");

@@ -38,7 +38,7 @@ public class StoreUI {
                 int storeId = scanner.nextInt();
                 System.out.print("Enter store name: ");
                 String name = scanner.next();
-                System.out.print("Enter address: ");
+                System.out.print("Enter address or Site (if Online): ");
                 String address = scanner.next();
 
                 storeController.addStore(storeId, name, address);
