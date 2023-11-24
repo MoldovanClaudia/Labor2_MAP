@@ -4,7 +4,7 @@ import Domain.Store;
 import java.util.ArrayList;
 
 public class StoreRepository implements InMemoryRepository<Store> {
-    private final ArrayList<Store> stores = new ArrayList<Store>();
+    private static final ArrayList<Store> stores = new ArrayList<Store>();
 
     @Override
     public void addItem(Store newStore) {
