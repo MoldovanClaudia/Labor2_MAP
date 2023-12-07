@@ -40,4 +40,7 @@ public class Job {
     }
 
 
+    public void setId(int jobId) {
+        this.jobId = jobId;
+    }
 }

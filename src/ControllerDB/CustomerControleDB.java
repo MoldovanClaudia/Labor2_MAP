@@ -1,30 +1,34 @@
-package Controller;
+package ControllerDB;
 import Domain.Customer;
 
 import java.util.Map;
-import InMemoryRepository.CustomerRepository;
+import RepositoryDB.CustomerRepositoryDB;
 
 import java.util.ArrayList;
 
-public class CustomerController{
-    private final CustomerRepository customerRepository;
+public class CustomerControllerDB {
+    private CustomerRepositoryDB customerRepository;
 
-    public CustomerController(CustomerRepository customerRepository) {
+    public void CustomerController(CustomerRepositoryDB customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    public CustomerControllerDB(CustomerRepositoryDB customerRepository) {
         this.customerRepository = customerRepository;
     }
 
     public void addCustomer(int customerId, String firstName, String lastName, String contact, String billingAddress) {
         Customer newCustomer = new Customer(customerId,firstName,lastName,contact,billingAddress);
-        customerRepository.addItem(newCustomer);
+        customerRepository.add(newCustomer);
     }
 
-    public void deleteCustomer(int customerId) {
+    public void deleteCustomer(ArrayList<String> customerId) {
         Customer customer = customerRepository.findById(customerId);
-        customerRepository.deleteItem(customer);
+        customerRepository.delete(customer);
 
     }
 
-    public void updateItem(int customerId, Map<String, String> customer_updates) {
+    public void update(ArrayList<String> customerId, Map<String, String> customer_updates) {
         Customer oldCustomer = customerRepository.findById(customerId);
 
         if (oldCustomer != null) {
@@ -37,7 +41,7 @@ public class CustomerController{
             );
 
 
-            customerRepository.updateItem(oldCustomer, newCustomer);
+            customerRepository.update(oldCustomer, newCustomer);
             System.out.println("Customer updated successfully.");
         } else {
             System.out.println("Customer not found.");
@@ -46,7 +50,7 @@ public class CustomerController{
 
 
     public ArrayList<Customer> getAllCustomers() {
-        return customerRepository.getAllItems();
+        return customerRepository.readAll();
     }
 
 }

@@ -82,4 +82,7 @@ public class Customer implements Observer {
         }
     }
 
+    public void setId(int id) {
+        this.customerId = id;
+    }
 }

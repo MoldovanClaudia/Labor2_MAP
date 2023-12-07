@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="JavaLab2023" uuid="fb9b638e-14f5-405b-9a1c-fd6ca23f6584">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>.</remarks>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://LAPTOP-R90B1OI3\ADOXX15EN;database=MAP</jdbc-url>
+      <vm-options>-Djava.security.properties=C:\Users\aliim\Desktop\MAP\Labor2_MAP\custom.java.security</vm-options>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="trustServerCertificate" value="true" />
+        <property name="sslProtocol" value="TLSv1" />
+        <property name="encrypt" value="False" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="MAP@localhost" uuid="3592f954-852a-48e0-8764-c27640d85581">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost:3306;database=MAP</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="@localhost" uuid="e5df871a-6962-4f0b-8024-25a8b481dbbb">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

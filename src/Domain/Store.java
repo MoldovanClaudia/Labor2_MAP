@@ -40,5 +40,7 @@ public class Store implements StoreInterface {
     }
 
 
-
+    public void setId(int storeId) {
+        this.storeId = storeId;
+    }
 }
