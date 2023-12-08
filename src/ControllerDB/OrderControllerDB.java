@@ -2,26 +2,26 @@ package ControllerDB;
 import Domain.Order;
 import Domain.ProductOrder;
 import RepositoryDB.OrderRepositoryDB;
-import InMemoryRepository.ProductOrderRepository;
+import RepositryDB.ProductOrderRepositoryDB;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 public class OrderControllerDB {
     private OrderRepositoryDB orderRepository;
-    private ProductOrderRepository productOrderRepository;
+    private ProductOrderRepositoryDB productOrderRepository;
 
-    private void OrderController(OrderRepositoryDB orderRepository, ProductOrderRepository productOrderRepository) {
+    private void OrderController(OrderRepositoryDB orderRepository, ProductOrderRepositoryDB productOrderRepository) {
         this.orderRepository = orderRepository;
         this.productOrderRepository = productOrderRepository;
     }
 
-    public OrderControllerDB(OrderRepositoryDB orderRepository, ProductOrderRepository productOrderRepository) {
+    public OrderControllerDB(OrderRepositoryDB orderRepository, ProductOrderRepositoryDB productOrderRepository) {
         this.orderRepository = orderRepository;
         this.productOrderRepository = productOrderRepository;
     }
 
-    public static OrderControllerDB createOrderControllerDB(OrderRepositoryDB orderRepository, ProductOrderRepository productOrderRepository) {
+    public static OrderControllerDB createOrderControllerDB(OrderRepositoryDB orderRepository, ProductOrderRepositoryDB productOrderRepository) {
         return new OrderControllerDB(orderRepository, productOrderRepository);
     }
 
@@ -29,7 +29,7 @@ public class OrderControllerDB {
         Order newOrder = new Order(orderID, customerID, orderDate);
         orderRepository.add(newOrder);
         ProductOrder newProductOrder = new ProductOrder(productID, orderID);
-        productOrderRepository.addItem(newProductOrder);
+        productOrderRepository.add(newProductOrder);
     }
 
 
@@ -41,7 +41,7 @@ public class OrderControllerDB {
 
     public void updateOrder(Order oldOrder, Order newOrder, ProductOrder oldProductOrder, ProductOrder newProductOrder) {
         orderRepository.update(oldOrder, newOrder);
-        productOrderRepository.updateItem(oldProductOrder,newProductOrder);
+        productOrderRepository.update(oldProductOrder,newProductOrder);
     }
 
     public void updateOrder(ArrayList<String> orderId, Map<String, String> order_updates) {

@@ -24,7 +24,7 @@ public class CustomerController{
 
     }
 
-    public void updateItem(int customerId, Map<String, String> customer_updates) {
+    public void updateCustomer(int customerId, Map<String, String> customer_updates) {
         Customer oldCustomer = customerRepository.findById(customerId);
 
         if (oldCustomer != null) {
