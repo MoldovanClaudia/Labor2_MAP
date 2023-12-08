@@ -18,6 +18,9 @@ public class ProductControllerDB {
     private ProductStoreRepositoryDB productStoreRepository;
     private  CustomerRepositoryDB customerRepository;
 
+    public ProductControllerDB(ProductRepositoryDB productRepository, ProductStoreRepositoryDB productStoreRepository, CustomerRepositoryDB customerRepository) {
+    }
+
     public void ProductController(ProductRepositoryDB productRepository, ProductStoreRepositoryDB productStoreRepository, CustomerRepositoryDB customerRepository) {
         this.productRepository = productRepository;
         this.productStoreRepository = productStoreRepository;

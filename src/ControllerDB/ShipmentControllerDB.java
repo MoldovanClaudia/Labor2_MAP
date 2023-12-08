@@ -9,6 +9,9 @@ import java.util.Map;
 public class ShipmentControllerDB {
     private ShipmentRepositoryDB shipmentRepository;
 
+    public ShipmentControllerDB(ShipmentRepositoryDB shipmentRepository) {
+    }
+
     public void ShipmentController(ShipmentRepositoryDB shipmentRepository) {
         this.shipmentRepository = shipmentRepository;
     }

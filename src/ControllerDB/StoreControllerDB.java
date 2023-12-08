@@ -14,6 +14,9 @@ public class StoreControllerDB {
     private OnlineStoreRepositoryDB onlineStoreRepository;
     private StoreFactory storeFactory;
 
+    public StoreControllerDB(StoreRepositoryDB storeRepository, OnlineStoreRepositoryDB onlineStoreRepository, StoreFactory storeFactory) {
+    }
+
     public void StoreController(StoreRepositoryDB storeRepository, OnlineStoreRepositoryDB onlineStoreRepository, StoreFactory storeFactory ) {
         this.storeRepository = storeRepository;
         this.onlineStoreRepository = onlineStoreRepository;
