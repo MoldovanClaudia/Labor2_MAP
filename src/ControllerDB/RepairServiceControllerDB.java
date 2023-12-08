@@ -6,10 +6,10 @@ import RepositoryDB.RepairRepositoryDB;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class RepairServiceController {
+public class RepairServiceControllerDB {
     private final RepairRepositoryDB repairServiceRepository;
 
-    public RepairServiceController(RepairRepositoryDB repairServiceRepository) {
+    public RepairServiceControllerDB(RepairRepositoryDB repairServiceRepository) {
         this.repairServiceRepository = repairServiceRepository;
     }
 

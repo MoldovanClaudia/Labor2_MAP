@@ -6,10 +6,10 @@ import RepositoryDB.SupplierRepositoryDB;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class SupplierController {
+public class SupplierControllerDB {
     private final SupplierRepositoryDB supplierRepository;
 
-    public SupplierController(SupplierRepositoryDB supplierRepository) {
+    public SupplierControllerDB(SupplierRepositoryDB supplierRepository) {
         this.supplierRepository = supplierRepository;
     }
 

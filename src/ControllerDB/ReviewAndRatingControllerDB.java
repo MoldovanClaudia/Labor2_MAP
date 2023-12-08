@@ -6,10 +6,10 @@ import RepositoryDB.ReviewAndRatingRepositoryDB;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class ReviewAndRatingController {
+public class ReviewAndRatingControllerDB {
     private final ReviewAndRatingRepositoryDB reviewAndRatingRepository;
 
-    public ReviewAndRatingController(ReviewAndRatingRepositoryDB reviewAndRatingRepository) {
+    public ReviewAndRatingControllerDB(ReviewAndRatingRepositoryDB reviewAndRatingRepository) {
         this.reviewAndRatingRepository = reviewAndRatingRepository;
     }
 
