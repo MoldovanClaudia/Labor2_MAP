@@ -18,4 +18,13 @@ public class ProductLaptop extends Product{
         this.setSupplierId(supplierId);
         this.setQuantity(quantity);
     }
+
+    public String getTrackpad() { return this.trackpad;
+    }
+
+    public String getKeyboardType() { return this.keyboardType;
+    }
+
+    public String getOS() { return this.OS;
+    }
 }

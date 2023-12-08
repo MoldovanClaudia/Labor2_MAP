@@ -18,4 +18,13 @@ public class ProductPhone extends Product {
         this.setSupplierId(supplierId);
         this.setQuantity(quantity);
     }
+
+    public String getTouchType() { return this.touchType;
+    }
+
+    public String getCamera() { return this.camera;
+    }
+
+    public String getOS() { return this.OS;
+    }
 }
