@@ -12,7 +12,6 @@ public class ProductOrder {
         this.orderId = orderID;
     }
 
-    public int getproductOrderId() {return  productId;}
 
     @Override
     public String toString() {
@@ -20,5 +19,11 @@ public class ProductOrder {
                 "product id=" + productId +
                 "order id=" + orderId +
                 "}";
+    }
+
+    public int getProductId() { return this.productId;
+    }
+
+    public int getOrderId() { return this.orderId;
     }
 }

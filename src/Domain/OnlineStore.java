@@ -40,4 +40,6 @@ public class OnlineStore implements StoreInterface{
     }
 
 
+    public String getSite() { return this.storeSite;
+    }
 }

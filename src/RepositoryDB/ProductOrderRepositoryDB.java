@@ -1,6 +1,6 @@
 package RepositoryDB;
 
-import Domain.Order;
+import Domain.ProductOrder;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,18 +9,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderRepositoryDB extends Database implements RepositoryInterface<Order> {
+public class ProductOrderRepositoryDB extends Database implements RepositoryInterface<ProductOrder> {
 
     @Override
-    public void add(Order order) {
-        String sql = "INSERT INTO orders(orderId, customerId, orderDate) VALUES(?, ?, ?);";
+    public void add(ProductOrder order) {
+        String sql = "INSERT INTO productorder(productId, orderId) VALUES(?, ?);";
 
         try {
             PreparedStatement stmt = conn().prepareStatement(sql);
-            stmt.setString(1, String.valueOf(order.getOrderId()));
-            stmt.setString(2, String.valueOf(order.getCustomerId()));
-            stmt.setString(3, order.getOrderDate());
-
+            stmt.setString(1, String.valueOf(order.getProductId()));
+            stmt.setString(2, String.valueOf(order.getOrderId()));
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -29,8 +27,8 @@ public class OrderRepositoryDB extends Database implements RepositoryInterface<O
     }
 
     @Override
-    public void delete(Order deletedObject) {
-        String sql = "DELETE FROM orders WHERE orderId = ?;";
+    public void delete(ProductOrder deletedObject) {
+        String sql = "DELETE FROM productorder WHERE orderId = ?;";
 
         try {
             PreparedStatement stmt = conn().prepareStatement(sql);
@@ -43,14 +41,13 @@ public class OrderRepositoryDB extends Database implements RepositoryInterface<O
     }
 
     @Override
-    public void update(Order oldObject, Order newObject) {
-        String sql = "UPDATE orders SET customerId=?, orderDate=? WHERE orderId = ?;";
+    public void update(ProductOrder oldObject, ProductOrder newObject) {
+        String sql = "UPDATE productorder SET productId=? WHERE orderId = ?;";
 
         try {
             PreparedStatement stmt = conn().prepareStatement(sql);
-            stmt.setInt(1, newObject.getCustomerId());
-            stmt.setString(2, newObject.getOrderDate());
-            stmt.setInt(3, oldObject.getOrderId());
+            stmt.setInt(1, newObject.getProductId());
+            stmt.setInt(2, oldObject.getOrderId());
 
             stmt.executeUpdate();
 
@@ -60,23 +57,22 @@ public class OrderRepositoryDB extends Database implements RepositoryInterface<O
     }
 
     @Override
-    public ArrayList<Order> readAll() {
-        String sql = "SELECT * FROM orders;";
+    public ArrayList<ProductOrder> readAll() {
+        String sql = "SELECT * FROM productorder;";
 
         try {
             Statement stmt = conn().createStatement();
-            List<Order> Orders = new ArrayList<>();
+            List<ProductOrder> Orders = new ArrayList<>();
             ResultSet resultSet = stmt.executeQuery(sql);
 
             while (resultSet.next()) {
-                Order order = new Order(
-                        resultSet.getInt("orderId"),
-                        resultSet.getInt("cutomerId"),
-                        resultSet.getString("orderDate")
+                ProductOrder order = new ProductOrder(
+                        resultSet.getInt("productId"),
+                        resultSet.getInt("orderId")
                 );
                 Orders.add(order);
             }
-            return (ArrayList<Order>) Orders;
+            return (ArrayList<ProductOrder>) Orders;
         } catch (SQLException e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -84,8 +80,8 @@ public class OrderRepositoryDB extends Database implements RepositoryInterface<O
     }
 
     @Override
-    public Order findById(ArrayList<String> identifier) {
-        String sql = "SELECT * FROM orders WHERE orderId = ?;";
+    public ProductOrder findById(ArrayList<String> identifier) {
+        String sql = "SELECT * FROM productorder WHERE orderId = ?;";
 
         try {
             PreparedStatement stmt = conn().prepareStatement(sql);
@@ -93,10 +89,9 @@ public class OrderRepositoryDB extends Database implements RepositoryInterface<O
             ResultSet resultSet = stmt.executeQuery();
 
             if (resultSet.next()) {
-                return new Order(
-                        resultSet.getInt("orderId"),
-                        resultSet.getInt("cutomerId"),
-                        resultSet.getString("orderDate")
+                return new ProductOrder(
+                        resultSet.getInt("productId"),
+                        resultSet.getInt("orderId")
                 );
             }
         } catch (SQLException e) {
