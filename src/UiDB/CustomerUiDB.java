@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CustomerUI {
-    private static CustomerUI instance;
+public class CustomerUiDB {
+    private static CustomerUiDB instance;
 
-    private CustomerUI() {
+    private CustomerUiDB() {
     }
 
-    public static synchronized CustomerUI getInstance() {
+    public static synchronized CustomerUiDB getInstance() {
         if (instance == null) {
-            instance = new CustomerUI();
+            instance = new CustomerUiDB();
         }
         return instance;
     }
