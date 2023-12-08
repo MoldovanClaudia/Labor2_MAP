@@ -29,10 +29,11 @@ public class ProductOrderRepository implements InMemoryRepository<ProductOrder> 
         return productOrders;
     }
 
+    // !!
     @Override
     public ProductOrder findById(int productOrderId) {
         for(ProductOrder productOrder : productOrders) {
-            if (productOrder.getproductOrderId() == productOrderId) {
+            if (productOrder.getProductId() == productOrderId) {
                 return productOrder;
             }
         }

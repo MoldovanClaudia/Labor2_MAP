@@ -46,7 +46,7 @@ public class CustomerRepositoryDB extends Database implements RepositoryInterfac
 
     @Override
     public void update(Customer oldObject, Customer newObject) {
-        String sql = "UPDATE customer SET firstName=?, lastName=?, contact=?, billingAddres=? WHERE customerId = ?;";
+        String sql = "UPDATE customer SET firstName=?, lastName=?, contact=?, billingAddress=? WHERE customerId = ?;";
 
         try {
             PreparedStatement stmt = conn().prepareStatement(sql);
