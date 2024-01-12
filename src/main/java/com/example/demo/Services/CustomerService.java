@@ -2,7 +2,7 @@ package com.example.demo.Services;
 
 import com.example.demo.Domain.Customer;
 import com.example.demo.RepositorySpring.CustomerRepositorySpring;
-import com.example.demo.RepositorySpring.OrderRepositorySpring;
+//import com.example.demo.RepositorySpring.OrderRepositorySpring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,14 +11,20 @@ import java.util.Optional;
 @Service
 public class CustomerService {
     private final CustomerRepositorySpring customerRepo;
-    private final OrderRepositorySpring orderRepo;
+    //private final OrderRepositorySpring orderRepo;
 
 
     @Autowired
-    public CustomerService(CustomerRepositorySpring customerRepo, OrderRepositorySpring orderRepo) {
+    public CustomerService(CustomerRepositorySpring customerRepo) {
         this.customerRepo = customerRepo;
-        this.orderRepo = orderRepo;
+        //this.orderRepo = orderRepo;
     }
+
+//    @Autowired
+//    public CustomerService(CustomerRepositorySpring customerRepo, OrderRepositorySpring orderRepo) {
+//        this.customerRepo = customerRepo;
+//        //this.orderRepo = orderRepo;
+//    }
 
     public Customer createCustomer(Customer customer) {
         return customerRepo.save(customer);

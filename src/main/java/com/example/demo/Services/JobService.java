@@ -33,8 +33,8 @@ public class JobService {
     public Job updateJob(Job updatedJob) {
         return jobRepo.findById(updatedJob.getJob_id())
                 .map(existingJob -> {
-                    existingJob.setJobName(updatedJob.getJobName());
-                    existingJob.setJobDescription(updatedJob.getJobDescription());
+                    existingJob.setJob_name(updatedJob.getJob_name());
+                    existingJob.setJob_description(updatedJob.getJob_description());
                     return jobRepo.save(existingJob);
                 })
                 .orElse(null);

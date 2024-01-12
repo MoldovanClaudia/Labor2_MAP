@@ -1,8 +1,6 @@
 package com.example.demo.ControllerSpring;
 
-import com.example.demo.Domain.Customer;
 import com.example.demo.Domain.Job;
-import com.example.demo.Services.CustomerService;
 import com.example.demo.Services.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
